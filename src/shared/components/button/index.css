@@ -27,6 +27,7 @@
 }
 
 .button-primary:hover::after {
+  border-color: var(--purple);
   opacity: 0.1;
   visibility: visible;
 }
