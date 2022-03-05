@@ -1,8 +1,14 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: calc(100% - 8rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 1rem 4rem;
+  background-color: var(--white);
+  box-shadow: 0 0 10px -1px var(--grey);
 }
 
 .navbar-title h1 {

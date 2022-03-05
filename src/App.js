@@ -1,15 +1,18 @@
 import React from "react";
-import { BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 
 import { Navbar } from "./shared/components/index";
+import Landing from "./screens/landingPage";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Navbar />
-        <Routes></Routes>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
