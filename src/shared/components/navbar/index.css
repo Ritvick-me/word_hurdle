@@ -9,6 +9,7 @@
   padding: 1rem 4rem;
   background-color: var(--white);
   box-shadow: 0 0 10px -1px var(--grey);
+  z-index: 3;
 }
 
 .navbar-title h1 {
