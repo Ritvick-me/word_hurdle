@@ -1,0 +1,32 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+}
+
+.navbar-title h1 {
+  color: var(--purple);
+  font-size: 2rem;
+  font-weight: var(--bold);
+  margin: 0;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-links ul {
+  list-style-type: none;
+  display: inline;
+}
+
+.navbar-links ul li {
+  display: inline;
+  color: var(--purple);
+  font-weight: var(--bold);
+  margin-right: 1.5rem;
+  cursor: pointer;
+}

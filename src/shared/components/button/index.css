@@ -1,0 +1,56 @@
+.button {
+  position: relative;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.8rem;
+  font-weight: var(--semi-bold);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-primary {
+  color: var(--white);
+  border-style: none;
+  background-color: var(--purple);
+}
+
+.button-primary::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  background-color: var(--white);
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+
+.button-primary:hover::after {
+  opacity: 0.1;
+  visibility: visible;
+}
+
+.button-secondary {
+  color: var(--purple);
+  border-color: var(--purple);
+  background-color: var(--white);
+}
+
+.button-secondary::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  background-color: var(--purple);
+  opacity: 0;
+  transition-duration: 0.5s;
+}
+
+.button-secondary:hover::after {
+  opacity: 0.1;
+  visibility: visible;
+}
