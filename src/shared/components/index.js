@@ -1,4 +1,4 @@
 import Navbar from "./navbar";
 import Button from "./button";
-
-export { Navbar, Button };
+import Popup from "./popup";
+export { Navbar, Button, Popup };

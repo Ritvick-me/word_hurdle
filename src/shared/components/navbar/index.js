@@ -3,7 +3,7 @@ import "./index.css";
 
 import { Button } from "../";
 
-const index = () => {
+const NavBar = () => {
   const signInWithGoogle = () => {
     console.log("sadasd");
   };
@@ -18,14 +18,12 @@ const index = () => {
           <li className="navbar-links">How to play?</li>
           <li className="navbar-links">Leaderboards</li>
         </ul>
-        <Button
-          onClick={signInWithGoogle}
-          type="primary"
-          title="Sign in with Google"
-        />
+        <Button onClick={signInWithGoogle} type="primary">
+          Sign in with Google
+        </Button>
       </div>
     </nav>
   );
 };
 
-export default index;
+export default NavBar;

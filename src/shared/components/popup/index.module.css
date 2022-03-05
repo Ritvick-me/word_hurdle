@@ -1,0 +1,30 @@
+.popup {
+  padding: 10px 20px;
+}
+.headerTitle {
+  color: var(--purple);
+  font-weight: var(--bold);
+  margin: 0;
+  font-size: 35px;
+}
+.contentContainer {
+  padding: 15px;
+}
+.correctWord {
+  font-weight: var(--semi-bold);
+  font-size: 18px;
+}
+
+.correctWord span {
+  color: var(--green);
+}
+
+.meaning {
+  font-weight: var(--medium);
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.meaning span {
+  font-weight: var(--semi-bold);
+}
