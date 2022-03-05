@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import "./index.css";
 
-import { Button } from "../";
+import { Button } from "..";
 import CONSTANTS from "../../utils/constants";
 
 const { GOOGLE_AUTH_URL, GOOGLE_SCOPE } = CONSTANTS.URL;
