@@ -1,3 +1,38 @@
 .landing {
-  padding-top: 7rem;
+  background: linear-gradient(130deg, var(--light-purple) 30%, var(--white));
+  overflow: hidden;
+}
+
+.landing-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  padding-top: 7rem !important;
+  width: calc(100% - 4rem);
+  min-height: calc(100vh - 9rem);
+}
+
+.landing-body-bajaj-logo {
+  position: absolute;
+  filter: blur(10px) opacity(0.2);
+  width: 20rem;
+  left: 5rem;
+}
+
+.landing-blob {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30rem;
+  height: 30rem;
+  transform: translateX(15rem) translateY(15rem);
+  border-radius: 50%;
+  background: radial-gradient(var(--light-purple), var(--white));
+}
+
+.landing-glass {
+  position: relative;
+  background-color: var(--glass);
+  width: 100%;
 }
