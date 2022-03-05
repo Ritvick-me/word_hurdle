@@ -13,13 +13,6 @@
   min-height: calc(100vh - 9rem);
 }
 
-.landing-body-bajaj-logo {
-  position: absolute;
-  filter: blur(10px) opacity(0.2);
-  width: 20rem;
-  left: 5rem;
-}
-
 .landing-blob {
   position: absolute;
   right: 0;
@@ -33,7 +26,12 @@
 
 .landing-glass {
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: space-evenly;
   background-color: var(--glass);
+  min-height: calc(100vh - 8rem);
   width: 100%;
   padding: 1rem;
   border-radius: 5px;
