@@ -122,7 +122,6 @@
 .guestSignIn span {
   color: var(--red);
 }
-
 .blurContainer {
   filter: blur(8px);
   -webkit-filter: blur(8px);
