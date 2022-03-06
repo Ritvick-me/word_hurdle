@@ -13,7 +13,7 @@ const NewUser = () => {
           src={BajajIcon}
           alt="Bajaj Finserv Health Word Hurdle game similar to wordle"
         />
-        <div className="newUser-glass">asdasd</div>
+        <div className="newUser-glass">Loading...</div>
       </div>
     </div>
   );

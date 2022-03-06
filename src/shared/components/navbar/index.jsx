@@ -1,13 +1,16 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import { useLocation, Link } from "react-router-dom";
 import "./index.css";
 
-import { Button } from "..";
+import Leaderboards from "../../../assets/vector/Leaderboards.svg";
+import { Button, Avatar } from "..";
 import CONSTANTS from "../../utils/constants";
+import UserContext from "../../contexts/userContext";
 
 const { GOOGLE_AUTH_URL, GOOGLE_SCOPE } = CONSTANTS.URL;
 
 const Navbar = () => {
+  const { user } = useContext(UserContext);
   const location = useLocation();
 
   const signInWithGoogle = () => {
@@ -27,16 +30,30 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-title">
-        <h1>Wordle</h1>
+        <Link to="/">
+          <h1>Wordle</h1>
+        </Link>
       </div>
       <div className="navbar-links">
         <ul>
-          <li className="navbar-links">How to play?</li>
-          <li className="navbar-links">Leaderboards</li>
+          <Link to="/leaderboards">
+            <li>Leaderboards</li>
+            <span>
+              <img src={Leaderboards} alt="Visit Birdle leaderboards" />
+            </span>
+          </Link>
         </ul>
-        <Button onClick={signInWithGoogle} type="primary">
-          Sign in with Google
-        </Button>
+        {!user && (
+          <Button onClick={signInWithGoogle} type="primary">
+            Sign in <span>with Google</span>
+          </Button>
+        )}
+        {user && (
+          <Avatar
+            avatar={user.avatar}
+            alt={user.firstName + " " + user.lastName}
+          />
+        )}
       </div>
     </nav>
   );

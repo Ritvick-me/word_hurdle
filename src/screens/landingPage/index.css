@@ -37,3 +37,46 @@
   border-radius: 5px;
   background: linear-gradient(130deg, var(--glass) 30%, var(--light-purple));
 }
+
+@media (max-width: 1020px) {
+  .landing-body {
+    min-height: auto;
+  }
+
+  .landing-glass {
+    grid-template-columns: auto;
+    row-gap: 1rem;
+    justify-content: center;
+    min-height: auto;
+  }
+
+  .pickDifficulty {
+    align-self: center;
+    justify-self: center;
+    grid-area: 1 / 1 / 1 / 1;
+  }
+}
+
+@media (max-width: 500px) {
+  .landing {
+    display: flex;
+    justify-content: center;
+  }
+
+  .landing-body {
+    padding: 1rem 0rem;
+    padding-top: 7rem !important;
+    margin: 0;
+    min-height: calc(100vh - 8rem);
+    width: 100%;
+  }
+
+  .landing-glass {
+    grid-template-columns: auto;
+    row-gap: 1rem;
+    justify-content: center;
+    padding: 0;
+    margin: auto;
+    background: transparent;
+  }
+}
