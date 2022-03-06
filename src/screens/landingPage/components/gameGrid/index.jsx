@@ -3,12 +3,13 @@ import "./index.css";
 
 import BajajIcon from "../../../../assets/vector/BajajIcon.svg";
 import { toggleGrid, currentGrid } from "../../../../shared/utils/gridBody";
-import { LetterBox } from "../../../../shared/components";
+import { LetterBox, Popup } from "../../../../shared/components";
 
 const GameGrid = (props) => {
   const [previousRows, setPreviousRows] = useState([]);
   const [currentRow, setCurrentRow] = useState([]);
   const [emptyGrid, setEmptyGrid] = useState([]);
+  const [toggleModal, setToggleModal] = useState(false);
 
   useEffect(() => {
     setPreviousRows([]);
@@ -89,6 +90,7 @@ const GameGrid = (props) => {
       else setCurrentRow([]);
       props.setStep(1);
       props.setInitiateSubmit(false);
+      setToggleModal(true);
       console.log("You Win!!");
     } else {
       let updatedWord = currentGrid(props.difficulty);
@@ -113,52 +115,61 @@ const GameGrid = (props) => {
   };
 
   return (
-    <div className="gameGrid">
-      <img
-        className={`landing-body-bajaj-logo`}
-        src={BajajIcon}
-        alt="Bajaj Finserv Health Word Hurdle game similar to wordle"
-      />
-      {previousRows.length > 0 &&
-        previousRows.map((col, index) => {
-          return (
-            <div key={index} className="gameGrid-row">
-              {col.map((cell, index) => {
-                return (
-                  <LetterBox key={index} type={cell.type}>
-                    {cell.text}
-                  </LetterBox>
-                );
-              })}
-            </div>
-          );
-        })}
-      {currentRow.length > 0 && (
-        <div className="gameGrid-row">
-          {currentRow.map((cell, index) => {
+    <>
+      {toggleModal && (
+        <Popup
+          toggleModal={toggleModal}
+          guest
+          setToggleModal={setToggleModal}
+        />
+      )}
+      <div className="gameGrid">
+        <img
+          className={`landing-body-bajaj-logo`}
+          src={BajajIcon}
+          alt="Bajaj Finserv Health Word Hurdle game similar to wordle"
+        />
+        {previousRows.length > 0 &&
+          previousRows.map((col, index) => {
             return (
-              <LetterBox key={index} type={cell.type}>
-                {cell.text}
-              </LetterBox>
+              <div key={index} className="gameGrid-row">
+                {col.map((cell, index) => {
+                  return (
+                    <LetterBox key={index} type={cell.type}>
+                      {cell.text}
+                    </LetterBox>
+                  );
+                })}
+              </div>
             );
           })}
-        </div>
-      )}
-      {emptyGrid.length > 0 &&
-        emptyGrid.map((col, index) => {
-          return (
-            <div key={index} className="gameGrid-row">
-              {col.map((cell, index) => {
-                return (
-                  <LetterBox key={index} type={cell.type}>
-                    {cell.text}
-                  </LetterBox>
-                );
-              })}
-            </div>
-          );
-        })}
-    </div>
+        {currentRow.length > 0 && (
+          <div className="gameGrid-row">
+            {currentRow.map((cell, index) => {
+              return (
+                <LetterBox key={index} type={cell.type}>
+                  {cell.text}
+                </LetterBox>
+              );
+            })}
+          </div>
+        )}
+        {emptyGrid.length > 0 &&
+          emptyGrid.map((col, index) => {
+            return (
+              <div key={index} className="gameGrid-row">
+                {col.map((cell, index) => {
+                  return (
+                    <LetterBox key={index} type={cell.type}>
+                      {cell.text}
+                    </LetterBox>
+                  );
+                })}
+              </div>
+            );
+          })}
+      </div>
+    </>
   );
 };
 

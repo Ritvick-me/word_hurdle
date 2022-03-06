@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./index.css";
 
 import { getNewWord } from "../../shared/api/wordRequest";
-import { Popup } from "../../shared/components/index";
 import { GameGrid, KeyboardSection, PickDifficulty } from "./components";
 
 const Landing = () => {
@@ -56,7 +55,6 @@ const Landing = () => {
           )}
         </div>
       </div>
-      <Popup guest />
     </div>
   );
 };
