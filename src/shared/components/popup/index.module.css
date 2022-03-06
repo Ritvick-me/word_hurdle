@@ -6,9 +6,11 @@
   font-weight: var(--bold);
   margin: 0;
   font-size: 35px;
+  line-height: 38px;
 }
 .contentContainer {
-  padding: 15px;
+  padding: 0px 15px 10px 15px;
+  margin-top: -10px;
 }
 .correctWord {
   font-weight: var(--semi-bold);
@@ -27,4 +29,154 @@
 
 .meaning span {
   font-weight: var(--semi-bold);
+}
+.profileContainer img {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding-top: 0;
+}
+.profileContainer .profileDetails {
+  display: inline-block;
+  position: relative;
+  top: -21px;
+  left: 8px;
+}
+
+.profileContainer .profileDetails .name {
+  font-weight: var(--semi-bold);
+  font-size: 19px;
+}
+
+.profileContainer .profileDetails .id {
+  font-size: 14px;
+  margin-top: -21px;
+  font-weight: var(--medium);
+}
+.stats {
+  font-size: 15px;
+  color: var(--medium);
+  margin-left: 40px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.stats .statsTitle {
+  font-weight: var(--semi-bold);
+  font-size: 18px;
+}
+.stats span {
+  font-weight: var(--semi-bold);
+}
+.stats .itemOne span {
+  color: var(--purple);
+}
+.stats .itemTwo span {
+  color: var(--green);
+}
+.stats .itemTwo {
+  margin-top: -10px;
+}
+.stats .itemFour {
+  margin-top: -10px;
+}
+.stats .itemThree span {
+  color: var(--red);
+}
+.stats .itemFour span {
+  color: var(--yellow);
+}
+.stats .statsGroup {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative;
+  top: -20px;
+}
+.dialogBtn {
+  display: inline-block;
+  margin-left: 20px;
+}
+.guestContainer {
+  text-align: center;
+  width: fit-content;
+  position: absolute;
+  top: 14px;
+  left: 30px;
+}
+.guestScore {
+  font-size: 19px;
+}
+
+.guestScore,
+.guestSignIn {
+  font-weight: var(--semi-bold);
+}
+.guestScore span {
+  color: var(--purple);
+}
+.guestSignIn {
+  font-weight: var(--semi-bold);
+  margin-top: -16px;
+}
+.guestSignIn span {
+  color: var(--red);
+}
+
+.blurContainer {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+}
+.btnContainer {
+  margin-top: -8px;
+}
+
+@media screen and (max-width: 1024px) {
+  .stats {
+    margin-left: 0;
+    margin-top: -29px;
+  }
+  .btnContainer {
+    margin-left: -25px;
+    margin-top: -20px;
+  }
+  .contentContainer {
+    margin-top: -20px;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .contentContainer {
+    padding: 0px 10px 10px 10px;
+  }
+  .headerTitle {
+    margin-left: -10px;
+  }
+  .btnContainer {
+    margin-top: -35px;
+  }
+}
+
+@media screen and (max-width: 407px) {
+  .stats .statsGroup:nth-of-type(2) {
+    margin-top: -26px;
+  }
+  .guestContainer {
+    top: 35px;
+    left: 0px;
+  }
+}
+
+@media screen and (max-width: 348px) {
+  .profileContainer img {
+    width: 50px;
+    height: 50px;
+  }
+  .profileContainer .profileDetails {
+    top: -8px;
+  }
+  .profileContainer {
+    margin-left: -12px;
+    margin-top: -10px;
+  }
 }

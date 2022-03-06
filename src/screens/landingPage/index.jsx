@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./index.css";
-
+import { Popup } from "../../shared/components/index";
 import { GameGrid, KeyboardSection, PickDifficulty } from "./components";
 
 const Landing = () => {
@@ -31,6 +31,7 @@ const Landing = () => {
           {step === 2 && <KeyboardSection />}
         </div>
       </div>
+      <Popup guest />
     </div>
   );
 };
