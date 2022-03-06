@@ -30,6 +30,15 @@
   display: inline;
 }
 
+.navbar-links ul a {
+  color: var(--purple);
+  text-decoration: none !important;
+}
+
+.navbar-links ul a:hover {
+  color: var(--purple);
+}
+
 .navbar-links ul li {
   display: inline;
   color: var(--purple);

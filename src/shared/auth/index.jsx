@@ -60,11 +60,13 @@ const Auth = (props) => {
             },
           });
           userData = await getUser(userToken.userExists);
+          setUser(userData.user);
+          navigate(stateKey);
           return;
         }
         console.log("user exists in our db already");
         userData = await getUser(userToken.userExists);
-        setUser(userData);
+        setUser(userData.user);
         navigate(stateKey);
       }
     } catch (err) {

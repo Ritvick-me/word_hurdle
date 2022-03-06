@@ -1,13 +1,15 @@
-import React from "react";
-import { useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import { useLocation, Link } from "react-router-dom";
 import "./index.css";
 
-import { Button } from "..";
+import { Button, Avatar } from "..";
 import CONSTANTS from "../../utils/constants";
+import UserContext from "../../contexts/userContext";
 
 const { GOOGLE_AUTH_URL, GOOGLE_SCOPE } = CONSTANTS.URL;
 
 const Navbar = () => {
+  const { user } = useContext(UserContext);
   const location = useLocation();
 
   const signInWithGoogle = () => {
@@ -31,12 +33,22 @@ const Navbar = () => {
       </div>
       <div className="navbar-links">
         <ul>
-          <li className="navbar-links">How to play?</li>
-          <li className="navbar-links">Leaderboards</li>
+          <li>How to play?</li>
+          <Link to="/leaderboards">
+            <li>Leaderboards</li>
+          </Link>
         </ul>
-        <Button onClick={signInWithGoogle} type="primary">
-          Sign in with Google
-        </Button>
+        {!user && (
+          <Button onClick={signInWithGoogle} type="primary">
+            Sign in with Google
+          </Button>
+        )}
+        {user && (
+          <Avatar
+            avatar={user.avatar}
+            alt={user.firstName + " " + user.lastName}
+          />
+        )}
       </div>
     </nav>
   );
