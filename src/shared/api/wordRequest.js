@@ -29,7 +29,7 @@ export const getNewWord = async (val) => {
     },
   })
     .then((res) => {
-      return res.data.word;
+      return res.data;
     })
     .catch((err) => {
       console.log(err);

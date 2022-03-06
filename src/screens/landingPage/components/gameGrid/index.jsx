@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./index.css";
 
 import BajajIcon from "../../../../assets/vector/BajajIcon.svg";
+import UserContext from "../../../../shared/contexts/userContext";
 import { toggleGrid, currentGrid } from "../../../../shared/utils/gridBody";
+import { fetchScore } from "../../../../shared/utils/score";
+import { updateScore } from "../../../../shared/api/scoring";
 import { LetterBox, Popup } from "../../../../shared/components";
 
 const GameGrid = (props) => {
   const [previousRows, setPreviousRows] = useState([]);
   const [currentRow, setCurrentRow] = useState([]);
   const [emptyGrid, setEmptyGrid] = useState([]);
+  const [gameCompleted, setGameCompleted] = useState("");
   const [toggleModal, setToggleModal] = useState(false);
+  const [score, setScore] = useState(0);
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     setPreviousRows([]);
@@ -83,15 +90,24 @@ const GameGrid = (props) => {
     props.setWord("");
   }, [props.initiateSubmit]);
 
-  const endGame = (val) => {
+  const endGame = async (val) => {
     if (val === "Won") {
       if (previousRows.length !== props.difficulty)
         setCurrentRow(currentGrid(props.difficulty));
       else setCurrentRow([]);
       props.setStep(1);
+      let newScore = fetchScore(props.difficulty, previousRows.length + 1);
+      console.log(newScore);
+      if (!user) {
+        setScore(newScore);
+      } else {
+        const updatedScore = await updateScore(user.email, newScore);
+        console.log(updatedScore);
+        setScore(updatedScore.score);
+      }
       props.setInitiateSubmit(false);
-      setToggleModal(true);
       console.log("You Win!!");
+      setGameCompleted("Fantastic! You Won!");
     } else {
       let updatedWord = currentGrid(props.difficulty);
       for (let i = 0; i < props.word.length; i++) {
@@ -104,25 +120,30 @@ const GameGrid = (props) => {
       props.setStep(1);
       props.setInitiateSubmit(false);
       console.log("You Lost.");
+      setGameCompleted("Oops! You Lost!");
     }
+    setToggleModal(true);
   };
 
   const resetGame = () => {
-    setCurrentRow([]);
+    setCurrentRow(currentGrid(props.difficulty));
     setEmptyGrid(toggleGrid(props.difficulty));
     setPreviousRows([]);
     props.setWord("");
+    setGameCompleted("");
   };
 
   return (
     <>
-      {toggleModal && (
-        <Popup
-          toggleModal={toggleModal}
-          guest
-          setToggleModal={setToggleModal}
-        />
-      )}
+      <Popup
+        toggleModal={toggleModal}
+        gameCompleted={gameCompleted}
+        newWord={props.newWord}
+        setToggleModal={setToggleModal}
+        resetGame={resetGame}
+        score={score}
+        wordMeaning={props.wordMeaning}
+      />
       <div className="gameGrid">
         <img
           className={`landing-body-bajaj-logo`}

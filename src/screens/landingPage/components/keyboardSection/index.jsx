@@ -19,18 +19,7 @@ const KeyboardSection = (props) => {
         if (props.word.length === props.difficulty) {
           try {
             const res = await checkWord(props.word);
-            console.log(res);
             if (res) {
-              // let newRowOne = rowOne;
-              // newRowOne.forEach((r1, i) => {
-              //   Array.from(props.word).forEach((w, index) => {
-              //     if (w.toUpperCase() === props.newWord[index].toUpperCase()) {
-              //       r1.type = "correct";
-              //       letterMap[w]--;
-              //       isEnded++;
-              //     }
-              //   })
-              // })
               props.setInitiateSubmit(true);
             } else props.setWord("");
           } catch (err) {
@@ -58,7 +47,6 @@ const KeyboardSection = (props) => {
       if (props.word.length === props.difficulty) {
         try {
           const res = await checkWord(props.word);
-          console.log(res);
           if (res) props.setInitiateSubmit(true);
           else props.setWord("");
           props.setInitiateSubmit(true);

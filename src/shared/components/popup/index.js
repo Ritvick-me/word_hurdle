@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
@@ -10,6 +10,7 @@ import { Button } from "../";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import styles from "./index.module.css";
 import Profile from "../../../assets/img/profile.webp";
+import UserContext from "../../contexts/userContext";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -53,15 +54,18 @@ export function Popup(props) {
   // const [isMobile, setIsMobile] = useState(isPhone);
   const [open, setOpen] = React.useState(false);
 
+  const { user } = useContext(UserContext);
+
   const handleClose = () => {
+    props.resetGame();
     props.setToggleModal(false);
   };
 
   return (
     <BootstrapDialog
-      onClose={props.setToggleModal}
+      onClose={() => props.setToggleModal(false)}
       aria-labelledby="customized-dialog-title"
-      open={open}
+      open={props.toggleModal}
       fullWidth
       maxWidth="md"
     >
@@ -70,24 +74,25 @@ export function Popup(props) {
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          <h3 className={styles.headerTitle}>Perfect Game!</h3>
+          <h3 className={styles.headerTitle}>{props.gameCompleted}</h3>
         </BootstrapDialogTitle>
         <div className={styles.contentContainer}>
           <Grid container>
             <Grid item lg={6} md={isPhone ? 12 : 6} sm={12}>
               <p className={styles.correctWord}>
-                The correct word was: <span>Sassier</span>
+                The correct word was: <span>{props.newWord}</span>
               </p>
               <p className={styles.meaning}>
-                <span>Meaning:</span> Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit ut aliquam, purus sit amet luctus
+                <span>Meaning:</span> {props.wordMeaning}
               </p>
-              {!props.guest && (
+              {user && (
                 <div className={styles.profileContainer}>
                   <img src={Profile} alt="profile" />
                   <div className={styles.profileDetails}>
-                    <p className={styles.name}>Ritvick V. Pandey</p>
-                    <p className={styles.id}>@ritvick_culous</p>
+                    <p className={styles.name}>
+                      {user.firstName + " " + user.lastName}
+                    </p>
+                    <p className={styles.id}>@{user.username}</p>
                   </div>
                 </div>
               )}
@@ -97,7 +102,7 @@ export function Popup(props) {
                 <p className={styles.statsTitle}>Personal Statistics:</p>
                 <div
                   className={`${styles.statsContainer} ${
-                    props.guest && styles.blurContainer
+                    !user && styles.blurContainer
                   }`}
                 >
                   <div className={styles.statsGroup}>
@@ -105,7 +110,8 @@ export function Popup(props) {
                       <span>Rank: </span>#67
                     </p>
                     <p className={`${styles.item} ${styles.itemTwo}`}>
-                      <span>Score: </span>55775
+                      <span>Score: </span>
+                      {props.score}
                     </p>
                   </div>
                   <div className={styles.statsGroup}>
@@ -117,10 +123,11 @@ export function Popup(props) {
                     </p>
                   </div>
                 </div>
-                {props.guest && (
+                {!user && (
                   <div className={styles.guestContainer}>
                     <p className={styles.guestScore}>
-                      <span>Score: </span>560
+                      <span>Score: </span>
+                      {props.score}
                     </p>
                     <p className={styles.guestSignIn}>
                       Please <span>sign in</span> for more stats
@@ -135,7 +142,7 @@ export function Popup(props) {
                   </Button>
                 </div>
                 <div className={styles.dialogBtn}>
-                  <Button type="primary" size="dialogBtn">
+                  <Button type="primary" size="dialogBtn" onClick={handleClose}>
                     Next Round
                   </Button>
                 </div>
