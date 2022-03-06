@@ -34,11 +34,9 @@ const Navbar = () => {
           <li className="navbar-links">How to play?</li>
           <li className="navbar-links">Leaderboards</li>
         </ul>
-        <Button
-          onClick={signInWithGoogle}
-          type="primary"
-          title="Sign in with Google"
-        />
+        <Button onClick={signInWithGoogle} type="primary">
+          Sign in with Google
+        </Button>
       </div>
     </nav>
   );
