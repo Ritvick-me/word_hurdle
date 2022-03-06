@@ -32,7 +32,7 @@ http.interceptors.request.use(
               expires_in: new Date().getTime() + 1000 * 30 * 7,
               refresh_token,
             };
-            localStorage.setItem("access_token", newUserToken.accessToken);
+            localStorage.setItem("access_token", newUserToken.access_token);
             localStorage.setItem("token", JSON.stringify(newTokenObj));
           }
         }

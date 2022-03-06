@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import UserContext from "../contexts/userContext";
 import { getUser, fetchAccessToken } from "../api/auth";
 
-const Auth = () => {
+const Auth = (props) => {
   const location = useLocation();
   const search = location.search;
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Auth = () => {
     loginUser();
   }, [location]);
 
-  const loginUser = async (props) => {
+  const loginUser = async () => {
     try {
       const code = new URLSearchParams(search).get("code");
       const state = new URLSearchParams(search).get("state");
@@ -32,7 +32,26 @@ const Auth = () => {
       userToken = await fetchAccessToken(code);
 
       if (userToken) {
+        localStorage.setItem(
+          "access_token",
+          "Bearer " + userToken.access_token
+        );
+        document.cookie = `access_token = ${userToken.access_token}`;
+        localStorage.setItem(
+          "token",
+          JSON.stringify({
+            expires_in: new Date().getTime() + userToken.expires_in * 30,
+            refresh_token:
+              userToken.refresh_token !== undefined
+                ? userToken.refresh_token
+                : null,
+            userExists:
+              userToken.userExists === undefined ? true : userToken.userExists,
+          })
+        );
+        let userData = null;
         if (userToken.userExists === false) {
+          console.log("user does not exist on our db");
           navigate({
             pathname: "/new-user",
             state: {
@@ -40,25 +59,11 @@ const Auth = () => {
               redirect: stateKey,
             },
           });
+          userData = await getUser(userToken.userExists);
           return;
         }
-
-        localStorage.setItem("access_token", "Bearer " + userToken.accessToken);
-        document.cookie = `access_token = ${userToken.accessToken}`;
-        localStorage.setItem(
-          "token",
-          JSON.stringify({
-            expires_in:
-              new Date().getTime() +
-              userToken.refreshTokenValidityInMilliSeconds * 30,
-            refresh_token:
-              userToken.refreshToken !== undefined
-                ? userToken.refreshToken
-                : null,
-            userExists: userToken.userExists,
-          })
-        );
-        const userData = await getUser();
+        console.log("user exists in our db already");
+        userData = await getUser(userToken.userExists);
         setUser(userData);
         navigate(stateKey);
       }
