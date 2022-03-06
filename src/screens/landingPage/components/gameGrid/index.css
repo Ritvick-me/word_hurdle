@@ -1,0 +1,18 @@
+.gameGrid {
+  position: relative;
+  justify-self: center;
+}
+
+.gameGrid-row {
+  position: relative;
+  display: flex;
+}
+
+.landing-body-bajaj-logo {
+  position: absolute;
+  filter: blur(10px) opacity(0.2);
+  width: 100%;
+  top: 50%;
+  left: 0rem;
+  transform: translateY(-50%);
+}

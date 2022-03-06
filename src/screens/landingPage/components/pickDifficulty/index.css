@@ -1,0 +1,27 @@
+.pickDifficulty {
+  width: fit-content;
+}
+
+.pickDifficulty-desiable {
+  filter: grayscale(100%);
+}
+
+.pickDifficulty-selector {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 2rem;
+}
+
+.pickDifficulty-tiles {
+  justify-self: flex-end;
+}
+
+.pickDifficulty-tiles button {
+  margin-left: 1rem;
+}
+
+.pickDifficulty-submission {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}

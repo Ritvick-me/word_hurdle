@@ -1,9 +1,9 @@
-.landing {
+.newUser {
   background: linear-gradient(130deg, var(--light-purple) 30%, var(--white));
   overflow: hidden;
 }
 
-.landing-body {
+.newUser-body {
   position: relative;
   display: flex;
   align-items: center;
@@ -13,7 +13,14 @@
   min-height: calc(100vh - 9rem);
 }
 
-.landing-blob {
+.newUser-body-bajaj-logo {
+  position: absolute;
+  filter: blur(10px) opacity(0.2);
+  width: 20rem;
+  left: 5rem;
+}
+
+.newUser-blob {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -24,14 +31,9 @@
   background: radial-gradient(var(--light-purple), var(--white));
 }
 
-.landing-glass {
+.newUser-glass {
   position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-content: space-evenly;
   background-color: var(--glass);
-  min-height: calc(100vh - 8rem);
   width: 100%;
   padding: 1rem;
   border-radius: 5px;
