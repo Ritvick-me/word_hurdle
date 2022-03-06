@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-export default function profiles({ Leaderboard }) {
+export default function Profiles({ Leaderboard }) {
   return <div id="profile">{Item(Leaderboard)}</div>;
 }
 
