@@ -7,7 +7,7 @@ const PickDifficulty = (props) => {
   return (
     <div
       className={`pickDifficulty ${
-        props.isDisabled && "pickDifficulty-desiable"
+        props.isDisabled ? "pickDifficulty-desiable" : ""
       }`}
     >
       <div className="pickDifficulty-selector">
