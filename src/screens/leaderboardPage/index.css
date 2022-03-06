@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
-* > * {
-  font-family: "Poppins", cursive;
-  /* margin: 0; */
-}
-
 .main {
   display: flex;
   justify-content: center;
@@ -43,12 +38,14 @@
 }
 
 #profile {
+  margin: 0;
   margin-top: 3em;
 }
 #profile .flex-header {
+  margin: 0;
   display: flex;
   box-shadow: 0 0 10px -1px var(--grey);
-  padding: 5px 30px;
+  padding: 0px 30px;
   justify-content: space-between;
   gap: 10em;
   text-align: left;
@@ -77,6 +74,7 @@
 #profile .flex-header .rank .heading,
 #profile .flex-header .current .heading,
 #profile .flex-header .alltime .heading {
+  margin: 0;
   text-align: center;
   align-items: center;
   width: 60px;
@@ -105,6 +103,7 @@
 #profile .flex .item-container {
   display: flex;
   gap: 5em;
+  height: 60px;
 }
 
 #profile .flex .score,
@@ -124,6 +123,7 @@
   width: 60px;
   border-radius: 8px;
   padding: 10px 18px;
+  margin-top: 30px;
   color: var(--white);
 }
 
@@ -150,8 +150,105 @@
 
 #profile .flex .info {
   padding: 1em;
+  height: 60px;
 }
 
 .text-dark {
   color: var(--color-dark);
+  padding-top: 5px;
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  #profile .flex-header .score .heading,
+  #profile .flex-header .rank .heading,
+  #profile .flex-header .current .heading,
+  #profile .flex-header .alltime .heading {
+    padding: 0px;
+  }
+
+  #profile .flex-header .score .heading {
+    margin-right: 10px;
+  }
+  #profile .flex-header .rank .heading {
+    margin-right: 7px;
+  }
+  #profile .flex-header .current .heading {
+    margin-right: 10px;
+  }
+  #profile .flex .score .score-span,
+  #profile .flex .rank .rank-span,
+  #profile .flex .current .current-span,
+  #profile .flex .alltime .alltime-span {
+    width: 30px;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  #profile .flex img {
+    width: 40%;
+  }
+  .text-dark {
+    font-size: 15px;
+    margin: 0;
+  }
+  .user-name {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 775px) {
+  .main {
+    transform: scale(0.9);
+    margin-top: -20px;
+    padding-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .main {
+    transform: scale(0.8);
+    margin-top: -80px;
+    padding-top: 7rem;
+  }
+}
+
+@media screen and (max-width: 625px) {
+  .main {
+    transform: scale(0.7);
+    margin-top: -80px;
+    padding-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .main {
+    transform: scale(0.6);
+    margin-top: -130px;
+    padding-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 465px) {
+  .main {
+    transform: scale(0.5);
+    margin-top: -180px;
+    padding-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .main {
+    transform: scale(0.45);
+    margin-top: -200px;
+    padding-top: 4rem;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .main {
+    transform: scale(0.4);
+    margin-top: -230px;
+    padding-top: 4rem;
+  }
 }

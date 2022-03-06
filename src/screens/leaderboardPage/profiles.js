@@ -1,6 +1,6 @@
 import React from "react";
-
-export default function profiles({ Leaderboard }) {
+import "./index.css";
+export default function Profiles({ Leaderboard }) {
   return <div id="profile">{Item(Leaderboard)}</div>;
 }
 
@@ -37,7 +37,7 @@ function Item(data) {
 
               <div className="info">
                 <h4 className="name text-dark">{value.name}</h4>
-                <span>{value.username}</span>
+                <span className="user-name">{value.username}</span>
               </div>
             </div>
 
