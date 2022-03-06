@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
+
+import { getNewWord } from "../../shared/api/wordRequest";
 import { Popup } from "../../shared/components/index";
 import { GameGrid, KeyboardSection, PickDifficulty } from "./components";
 
@@ -9,6 +11,16 @@ const Landing = () => {
   const [initiateSubmit, setInitiateSubmit] = useState(false);
   const [difficulty, setDifficulty] = useState(5);
   const [step, setStep] = useState(1);
+
+  const startGame = async (val) => {
+    try {
+      const data = await getNewWord(difficulty);
+      setNewWord(data.toUpperCase());
+      setStep(val);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="landing">
@@ -29,7 +41,7 @@ const Landing = () => {
               difficulty={difficulty}
               setDifficulty={setDifficulty}
               step={step}
-              setStep={setStep}
+              setStep={startGame}
               isDisabled={false}
             />
           )}
