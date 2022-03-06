@@ -33,7 +33,6 @@ const Navbar = () => {
       </div>
       <div className="navbar-links">
         <ul>
-          <li>How to play?</li>
           <Link to="/leaderboards">
             <li>Leaderboards</li>
           </Link>

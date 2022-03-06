@@ -37,3 +37,22 @@
   border-radius: 5px;
   background: linear-gradient(130deg, var(--glass) 30%, var(--light-purple));
 }
+
+@media (max-width: 1020px) {
+  .landing-glass {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    grid-template-areas:
+      "b"
+      "a";
+  }
+
+  .gameGrid {
+    grid-area: "a";
+  }
+
+  .pickDifficulty {
+    grid-area: "b";
+  }
+}

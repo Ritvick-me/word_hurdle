@@ -50,6 +50,7 @@ const Landing = () => {
               difficulty={difficulty}
               word={word}
               setWord={setWord}
+              initiateSubmit={initiateSubmit}
               setInitiateSubmit={setInitiateSubmit}
             />
           )}

@@ -1,3 +1,23 @@
 .keyModule-board {
   margin-top: 2rem;
 }
+
+.keyModule-row {
+  display: grid;
+  margin-top: 1rem;
+  column-gap: 0.5rem;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.keyModule-row-one {
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.keyModule-row-two {
+  grid-template-columns: repeat(9, 1fr);
+}
+
+.keyModule-row-three {
+  grid-template-columns: auto repeat(7, 1fr) auto;
+}
