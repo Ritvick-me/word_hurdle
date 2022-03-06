@@ -4,6 +4,7 @@ import "./App.css";
 
 import { Navbar } from "./shared/components/index";
 import Landing from "./screens/landingPage";
+import LeaderboardPage from "./screens/leaderboardPage";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<LeaderboardPage />} />
         </Routes>
       </BrowserRouter>
     </div>

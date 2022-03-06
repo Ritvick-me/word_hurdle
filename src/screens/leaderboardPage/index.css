@@ -1,4 +1,157 @@
-.leaderboard
-{
-    padding-top: 7rem;
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* > * {
+  font-family: "Poppins", cursive;
+  margin: 0;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 7rem;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.board .leaderboard {
+  margin-bottom: 1em;
+}
+
+.board .duration {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+.board .duration > button {
+  border: 1px solid var(--color-light);
+  padding: 0.5em 2em;
+  border-radius: 60px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.board .duration > button:hover {
+  background-color: var(--purple);
+  color: var(--light-purple);
+}
+
+.active {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+
+#profile {
+  margin-top: 3em;
+}
+#profile .flex-header {
+  display: flex;
+  box-shadow: 0 0 10px -1px var(--grey);
+  padding: 5px 30px;
+  justify-content: space-between;
+  gap: 10em;
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+#profile .flex-header .item {
+  display: flex;
+  align-items: center;
+}
+
+#profile .flex-header .item-container {
+  display: flex;
+  gap: 5em;
+}
+
+#profile .flex-header .score,
+#profile .flex-header .rank,
+#profile .flex-header .current,
+#profile .flex-header .alltime {
+  display: flex;
+  align-items: center;
+}
+
+#profile .flex-header .score .heading,
+#profile .flex-header .rank .heading,
+#profile .flex-header .current .heading,
+#profile .flex-header .alltime .heading {
+  text-align: center;
+  align-items: center;
+  width: 60px;
+  padding: 10px 18px;
+}
+
+#profile .flex {
+  display: flex;
+  box-shadow: 0 0 10px -1px var(--grey);
+  padding: 5px 30px;
+  justify-content: space-between;
+  gap: 10em;
+  text-align: left;
+  margin-bottom: 2em;
+}
+
+#profile .flex:hover {
+  background-color: var(--lighter-purple);
+}
+
+#profile .flex .item {
+  display: flex;
+  align-items: center;
+}
+
+#profile .flex .item-container {
+  display: flex;
+  gap: 5em;
+}
+
+#profile .flex .score,
+#profile .flex .rank,
+#profile .flex .current,
+#profile .flex .alltime {
+  display: flex;
+  align-items: center;
+}
+
+#profile .flex .score .score-span,
+#profile .flex .rank .rank-span,
+#profile .flex .current .current-span,
+#profile .flex .alltime .alltime-span {
+  text-align: center;
+  border: 0.5px solid;
+  width: 60px;
+  border-radius: 8px;
+  padding: 10px 18px;
+  color: var(--white);
+}
+
+#profile .flex .score .score-span {
+  background-color: var(--purple);
+}
+
+#profile .flex .rank .rank-span {
+  background-color: var(--green);
+}
+
+#profile .flex .current .current-span {
+  background-color: var(--yellow);
+}
+
+#profile .flex .alltime .alltime-span {
+  background-color: var(--red);
+}
+
+#profile .flex img {
+  width: 15%;
+  border-radius: 50%;
+}
+
+#profile .flex .info {
+  padding: 1em;
+}
+
+.text-dark {
+  color: var(--color-dark);
 }
