@@ -49,7 +49,6 @@ const Auth = (props) => {
               userToken.userExists === undefined ? true : userToken.userExists,
           })
         );
-        console.log(userToken);
         let userData = null;
         if (userToken.userExists === false) {
           console.log("user does not exist on our db");
@@ -61,12 +60,10 @@ const Auth = (props) => {
             },
           });
           userData = await getUser(userToken.userExists);
-          console.log("user data for the first time : ", userData);
           return;
         }
         console.log("user exists in our db already");
         userData = await getUser(userToken.userExists);
-        console.log("user data  for the subsequesnt time : ", userData);
         setUser(userData);
         navigate(stateKey);
       }

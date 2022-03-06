@@ -9,7 +9,6 @@ export const getUser = async (userExists) => {
     res = await http.get(`${backend_base_URL}/auth/user`);
   }
   res = await http.get(`${backend_base_URL}/auth/user/firsttime`);
-  console.log(res);
   return res.data;
 };
 
@@ -21,9 +20,6 @@ export const fetchAccessToken = async (code) => {
     }
   );
   const token = res.data;
-  if (token) {
-    console.log("Token: ", token);
-  }
 
   return token;
 };
