@@ -29,3 +29,19 @@
   color: var(--white);
   background-color: var(--red);
 }
+
+@media (max-width: 1020px) {
+  .letterBox {
+    font-size: 0.8rem;
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .letterBox {
+    height: 1.5rem;
+    width: 1.5rem;
+    border-width: 2px;
+  }
+}

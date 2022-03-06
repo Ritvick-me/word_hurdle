@@ -20,16 +20,6 @@ const KeyboardSection = (props) => {
           try {
             const res = await checkWord(props.word);
             if (res) {
-              // let newRowOne = rowOne;
-              // newRowOne.forEach((r1, i) => {
-              //   Array.from(props.word).forEach((w, index) => {
-              //     if (w.toUpperCase() === props.newWord[index].toUpperCase()) {
-              //       r1.type = "correct";
-              //       letterMap[w]--;
-              //       isEnded++;
-              //     }
-              //   })
-              // })
               props.setInitiateSubmit(true);
             } else props.setWord("");
           } catch (err) {

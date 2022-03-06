@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
 import "./index.css";
 
+import Leaderboards from "../../../assets/vector/Leaderboards.svg";
 import { Button, Avatar } from "..";
 import CONSTANTS from "../../utils/constants";
 import UserContext from "../../contexts/userContext";
@@ -29,17 +30,22 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-title">
-        <h1>Wordle</h1>
+        <Link to="/">
+          <h1>Wordle</h1>
+        </Link>
       </div>
       <div className="navbar-links">
         <ul>
           <Link to="/leaderboards">
             <li>Leaderboards</li>
+            <span>
+              <img src={Leaderboards} alt="Visit Birdle leaderboards" />
+            </span>
           </Link>
         </ul>
         {!user && (
           <Button onClick={signInWithGoogle} type="primary">
-            Sign in with Google
+            Sign in <span>with Google</span>
           </Button>
         )}
         {user && (

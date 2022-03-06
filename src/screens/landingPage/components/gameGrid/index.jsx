@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./index.css";
 
 import BajajIcon from "../../../../assets/vector/BajajIcon.svg";
+import UserContext from "../../../../shared/contexts/userContext";
 import { toggleGrid, currentGrid } from "../../../../shared/utils/gridBody";
+import { fetchScore } from "../../../../shared/utils/score";
+import { updateScore } from "../../../../shared/api/scoring";
 import { LetterBox, Popup } from "../../../../shared/components";
 
 const GameGrid = (props) => {
@@ -12,6 +15,8 @@ const GameGrid = (props) => {
   const [gameCompleted, setGameCompleted] = useState("");
   const [toggleModal, setToggleModal] = useState(false);
   const [score, setScore] = useState(0);
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     setPreviousRows([]);
@@ -85,12 +90,21 @@ const GameGrid = (props) => {
     props.setWord("");
   }, [props.initiateSubmit]);
 
-  const endGame = (val) => {
+  const endGame = async (val) => {
     if (val === "Won") {
       if (previousRows.length !== props.difficulty)
         setCurrentRow(currentGrid(props.difficulty));
       else setCurrentRow([]);
       props.setStep(1);
+      let newScore = fetchScore(props.difficulty, previousRows.length + 1);
+      console.log(newScore);
+      if (!user) {
+        setScore(newScore);
+      } else {
+        const updatedScore = await updateScore(user.email, newScore);
+        console.log(updatedScore);
+        setScore(updatedScore.score);
+      }
       props.setInitiateSubmit(false);
       console.log("You Win!!");
       setGameCompleted("Fantastic! You Won!");
@@ -123,11 +137,11 @@ const GameGrid = (props) => {
     <>
       <Popup
         toggleModal={toggleModal}
-        guest
         gameCompleted={gameCompleted}
         newWord={props.newWord}
         setToggleModal={setToggleModal}
         resetGame={resetGame}
+        score={score}
         wordMeaning={props.wordMeaning}
       />
       <div className="gameGrid">
