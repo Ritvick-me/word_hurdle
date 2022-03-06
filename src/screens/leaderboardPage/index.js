@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
+import Profiles from "./profiles";
+import { Leaderboard } from "./database";
 
-const leaderboardPage = () => {
-  return <div className="leaderboard">Leader Board</div>;
-};
+export default function LeaderboardPage() {
+  const [period, setPeriod] = useState(0);
+  const handleClick = (e) => {
+    setPeriod(e.target.dataset.id);
+  };
+  return (
+    <div className="main">
+      <div className="board">
+        <h1 className="leaderboard"> Leader Board </h1>
+        <div className="duration">
+          <button onClick={handleClick} data-id="7">
+            7 Days
+          </button>
+          <button onClick={handleClick} data-id="30">
+            30 Days
+          </button>
+          <button onClick={handleClick} data-id="0">
+            All-Time
+          </button>
+        </div>
+        <Profiles Leaderboard={between(Leaderboard, period)}></Profiles>
+      </div>
+    </div>
+  );
+}
+function between(data, between) {
+  const today = new Date();
+  const previous = new Date(today);
+  previous.setDate(previous.getDate() - (between + 1));
 
-export default leaderboardPage;
+  let filter = data.filter((val) => {
+    let userDate = new Date(val.dt);
+    if (between == 0) return val;
+    return previous <= userDate && today >= userDate;
+  });
+
+  return filter.sort((a, b) => {
+    if (a.score === b.score) {
+      return b.score - a.score;
+    } else {
+      return b.score - a.score;
+    }
+  });
+}

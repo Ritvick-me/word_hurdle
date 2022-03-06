@@ -5,6 +5,7 @@ import "./App.css";
 import { Navbar } from "./shared/components/index";
 import Auth from "./shared/auth";
 import Landing from "./screens/landingPage";
+import LeaderboardPage from "./screens/leaderboardPage";
 import NewUser from "./screens/newUser";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route path="/leaderboards" element={<LeaderboardPage />} />
           <Route path="/new-user" element={<NewUser />} />
           <Route path="/login" element={<Auth />} />
           <Route path="/" element={<Landing />} />
