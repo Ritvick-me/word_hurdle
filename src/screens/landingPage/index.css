@@ -39,20 +39,20 @@
 }
 
 @media (max-width: 1020px) {
-  .landing-glass {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    justify-content: center;
-    grid-template-areas:
-      "b"
-      "a";
+  .landing-body {
+    min-height: auto;
   }
 
-  .gameGrid {
-    grid-area: "a";
+  .landing-glass {
+    grid-template-columns: auto;
+    row-gap: 1rem;
+    justify-content: center;
+    min-height: auto;
   }
 
   .pickDifficulty {
-    grid-area: "b";
+    align-self: center;
+    justify-self: center;
+    grid-area: 1 / 1 / 1 / 1;
   }
 }

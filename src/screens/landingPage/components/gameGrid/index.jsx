@@ -9,7 +9,9 @@ const GameGrid = (props) => {
   const [previousRows, setPreviousRows] = useState([]);
   const [currentRow, setCurrentRow] = useState([]);
   const [emptyGrid, setEmptyGrid] = useState([]);
+  const [gameCompleted, setGameCompleted] = useState("");
   const [toggleModal, setToggleModal] = useState(false);
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
     setPreviousRows([]);
@@ -90,8 +92,8 @@ const GameGrid = (props) => {
       else setCurrentRow([]);
       props.setStep(1);
       props.setInitiateSubmit(false);
-      setToggleModal(true);
       console.log("You Win!!");
+      setGameCompleted("Fantastic! You Won!");
     } else {
       let updatedWord = currentGrid(props.difficulty);
       for (let i = 0; i < props.word.length; i++) {
@@ -104,25 +106,30 @@ const GameGrid = (props) => {
       props.setStep(1);
       props.setInitiateSubmit(false);
       console.log("You Lost.");
+      setGameCompleted("Oops! You Lost!");
     }
+    setToggleModal(true);
   };
 
   const resetGame = () => {
-    setCurrentRow([]);
+    setCurrentRow(currentGrid(props.difficulty));
     setEmptyGrid(toggleGrid(props.difficulty));
     setPreviousRows([]);
     props.setWord("");
+    setGameCompleted("");
   };
 
   return (
     <>
-      {toggleModal && (
-        <Popup
-          toggleModal={toggleModal}
-          guest
-          setToggleModal={setToggleModal}
-        />
-      )}
+      <Popup
+        toggleModal={toggleModal}
+        guest
+        gameCompleted={gameCompleted}
+        newWord={props.newWord}
+        setToggleModal={setToggleModal}
+        resetGame={resetGame}
+        wordMeaning={props.wordMeaning}
+      />
       <div className="gameGrid">
         <img
           className={`landing-body-bajaj-logo`}

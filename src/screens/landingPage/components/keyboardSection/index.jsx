@@ -19,7 +19,6 @@ const KeyboardSection = (props) => {
         if (props.word.length === props.difficulty) {
           try {
             const res = await checkWord(props.word);
-            console.log(res);
             if (res) {
               // let newRowOne = rowOne;
               // newRowOne.forEach((r1, i) => {
@@ -58,7 +57,6 @@ const KeyboardSection = (props) => {
       if (props.word.length === props.difficulty) {
         try {
           const res = await checkWord(props.word);
-          console.log(res);
           if (res) props.setInitiateSubmit(true);
           else props.setWord("");
           props.setInitiateSubmit(true);

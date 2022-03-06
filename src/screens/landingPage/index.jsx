@@ -5,7 +5,8 @@ import { getNewWord } from "../../shared/api/wordRequest";
 import { GameGrid, KeyboardSection, PickDifficulty } from "./components";
 
 const Landing = () => {
-  const [newWord, setNewWord] = useState("SHAKES");
+  const [newWord, setNewWord] = useState("");
+  const [wordMeaning, setWordMeaning] = useState("");
   const [word, setWord] = useState("");
   const [initiateSubmit, setInitiateSubmit] = useState(false);
   const [difficulty, setDifficulty] = useState(5);
@@ -14,7 +15,8 @@ const Landing = () => {
   const startGame = async (val) => {
     try {
       const data = await getNewWord(difficulty);
-      setNewWord(data.toUpperCase());
+      setNewWord(data.word.toUpperCase());
+      setWordMeaning(data.meaning);
       setStep(val);
     } catch (err) {
       console.log(err);
@@ -33,6 +35,7 @@ const Landing = () => {
             setWord={setWord}
             initiateSubmit={initiateSubmit}
             setInitiateSubmit={setInitiateSubmit}
+            wordMeaning={wordMeaning}
             setStep={setStep}
           />
           {step === 1 && (

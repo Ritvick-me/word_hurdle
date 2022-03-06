@@ -54,14 +54,15 @@ export function Popup(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClose = () => {
+    props.resetGame();
     props.setToggleModal(false);
   };
 
   return (
     <BootstrapDialog
-      onClose={props.setToggleModal}
+      onClose={() => props.setToggleModal(false)}
       aria-labelledby="customized-dialog-title"
-      open={open}
+      open={props.toggleModal}
       fullWidth
       maxWidth="md"
     >
@@ -70,17 +71,16 @@ export function Popup(props) {
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          <h3 className={styles.headerTitle}>Perfect Game!</h3>
+          <h3 className={styles.headerTitle}>{props.gameCompleted}</h3>
         </BootstrapDialogTitle>
         <div className={styles.contentContainer}>
           <Grid container>
             <Grid item lg={6} md={isPhone ? 12 : 6} sm={12}>
               <p className={styles.correctWord}>
-                The correct word was: <span>Sassier</span>
+                The correct word was: <span>{props.newWord}</span>
               </p>
               <p className={styles.meaning}>
-                <span>Meaning:</span> Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit ut aliquam, purus sit amet luctus
+                <span>Meaning:</span> {props.wordMeaning}
               </p>
               {!props.guest && (
                 <div className={styles.profileContainer}>
@@ -135,7 +135,7 @@ export function Popup(props) {
                   </Button>
                 </div>
                 <div className={styles.dialogBtn}>
-                  <Button type="primary" size="dialogBtn">
+                  <Button type="primary" size="dialogBtn" onClick={handleClose}>
                     Next Round
                   </Button>
                 </div>
