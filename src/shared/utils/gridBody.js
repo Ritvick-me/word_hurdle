@@ -8,6 +8,13 @@ const CELL_CURRENT = {
   type: "current",
 };
 
+class CurrentCell {
+  constructor() {
+    this.text = "";
+    this.type = "current";
+  }
+}
+
 export const toggleGrid = (letterCount) => {
   let ROW = [];
   switch (letterCount) {
@@ -50,19 +57,22 @@ export const currentGrid = (letterCount) => {
   switch (letterCount) {
     case 6: {
       for (let colCount = 0; colCount < 6; colCount++) {
-        COLUMN.push(CELL_CURRENT);
+        let colCur = new CurrentCell();
+        COLUMN.push(colCur);
       }
       break;
     }
     case 7: {
       for (let colCount = 0; colCount < 7; colCount++) {
-        COLUMN.push(CELL_CURRENT);
+        let colCur = new CurrentCell();
+        COLUMN.push(colCur);
       }
       break;
     }
     default: {
       for (let colCount = 0; colCount < 5; colCount++) {
-        COLUMN.push(CELL_CURRENT);
+        let colCur = new CurrentCell();
+        COLUMN.push(colCur);
       }
     }
   }

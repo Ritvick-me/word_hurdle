@@ -2,6 +2,10 @@
   width: fit-content;
 }
 
+.pickDifficulty-desiable {
+  filter: grayscale(100%);
+}
+
 .pickDifficulty-selector {
   display: grid;
   grid-template-columns: auto auto;

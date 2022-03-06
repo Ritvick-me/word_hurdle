@@ -7,7 +7,7 @@ import { getUser, fetchAccessToken } from "../api/auth";
 const Auth = () => {
   const location = useLocation();
   const search = location.search;
-  const history = useNavigate();
+  const navigate = useNavigate();
   const { setUser } = useContext(UserContext);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Auth = () => {
       const stateKey = localStorage.getItem(state);
 
       if (!stateKey || !code) {
-        props.history.push("/");
+        navigate("/");
         return;
       }
 
@@ -33,7 +33,7 @@ const Auth = () => {
 
       if (userToken) {
         if (userToken.userExists === false) {
-          history.push({
+          navigate({
             pathname: "/new-user",
             state: {
               userToken: userToken,
@@ -60,11 +60,11 @@ const Auth = () => {
         );
         const userData = await getUser();
         setUser(userData);
-        props.history.push(stateKey);
+        navigate(stateKey);
       }
     } catch (err) {
       console.log(err);
-      props.history.push("/");
+      navigate("/");
       return;
     }
   };

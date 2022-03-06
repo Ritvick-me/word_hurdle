@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   color: var(--purple);
+  font-weight: var(--bold);
   height: 3rem;
   width: 3rem;
   margin: 0.2rem;
@@ -25,5 +26,6 @@
 }
 
 .letterBox-wrong {
+  color: var(--white);
   background-color: var(--red);
 }
