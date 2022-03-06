@@ -11,32 +11,33 @@ const PickDifficulty = (props) => {
       }`}
     >
       <div className="pickDifficulty-selector">
-        <Button title="Letter Difficulty" type="primary" />
+        <Button type="primary">Letter Difficulty</Button>
         <div className="pickDifficulty-tiles">
           <Button
-            title="5"
             type={props.difficulty === 5 ? "primary" : "secondary"}
             onClick={() => !props.isDisabled && props.setDifficulty(5)}
-          />
+          >
+            5
+          </Button>
           <Button
-            title="6"
             type={props.difficulty === 6 ? "primary" : "secondary"}
             onClick={() => !props.isDisabled && props.setDifficulty(6)}
-          />
+          >
+            6
+          </Button>
           <Button
-            title="7"
             type={props.difficulty === 7 ? "primary" : "secondary"}
             onClick={() => !props.isDisabled && props.setDifficulty(7)}
-          />
+          >
+            7
+          </Button>
         </div>
       </div>
       {!props.isDisabled && (
         <div className="pickDifficulty-submission">
-          <Button
-            title="Start Round"
-            type="primary"
-            onClick={() => props.setStep(2)}
-          />
+          <Button type="primary" onClick={() => props.setStep(2)}>
+            Start Game
+          </Button>
         </div>
       )}
     </div>
