@@ -23,6 +23,7 @@ export default function LeaderboardPage() {
             All-Time
           </button>
         </div>
+
         <Profiles Leaderboard={between(Leaderboard, period)}></Profiles>
       </div>
     </div>
