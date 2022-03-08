@@ -87,9 +87,15 @@ export function Popup(props) {
           </div>
           <div className={styles.btnContainer}>
             <div className={styles.dialogBtn}>
-              <Button type="secondary" size="dialogBtn">
-                Share it
-              </Button>
+              <a
+                href={`https://api.whatsapp.com/send?text=Hey! I have got a score of ${props.score} in Bajaj Health Wordle challenge! Beat me to it in here! https://www.google.com`}
+                data-action="share/whatsapp/share"
+                target="_blank"
+              >
+                <Button type="secondary" size="dialogBtn">
+                  Share it
+                </Button>
+              </a>
             </div>
             <div className={styles.dialogBtn}>
               <a href={props.wordMeaning} target="_blank">

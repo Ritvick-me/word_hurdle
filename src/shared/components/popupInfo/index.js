@@ -92,7 +92,7 @@ export function PopupInfo(props) {
           </p>
           <Divider />
           <p>Examples</p>
-          <p>The letter W is in the word and in the correct spot.</p>
+          <p>The letter H is in the word and in the correct spot.</p>
           <div className={"gameGrid-row gamegrid-col-count-5"}>
             {DUMMY_CELL_CONTENT_HEART.map((body, index) => (
               <LetterBox key={body.text} type={body.type}>
