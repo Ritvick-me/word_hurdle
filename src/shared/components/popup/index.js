@@ -55,6 +55,7 @@ export function Popup(props) {
   const [open, setOpen] = React.useState(false);
 
   const { user } = useContext(UserContext);
+  console.log(user);
 
   const handleClose = () => {
     props.resetGame();
@@ -90,7 +91,7 @@ export function Popup(props) {
                   <img src={Profile} alt="profile" />
                   <div className={styles.profileDetails}>
                     <p className={styles.name}>
-                      {user.firstName + " " + user.lastName}
+                      {user.first_name + " " + user.last_name}
                     </p>
                     <p className={styles.id}>@{user.username}</p>
                   </div>

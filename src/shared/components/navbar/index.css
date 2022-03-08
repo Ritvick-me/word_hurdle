@@ -48,11 +48,58 @@
 }
 
 .navbar-links ul li {
+  position: relative;
   display: inline;
   color: var(--purple);
   font-weight: var(--bold);
-  margin-right: 1.5rem;
+  margin-right: 2rem;
   cursor: pointer;
+}
+
+.navbar-links ul li::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-bottom: none;
+  border-right: none;
+  border-color: var(--purple);
+  visibility: hidden;
+  transition-duration: 0.4s;
+}
+
+.navbar-links ul li:hover::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  visibility: visible;
+}
+
+.navbar-links ul li::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-color: var(--purple);
+  visibility: hidden;
+  transition-duration: 0.4s;
+}
+
+.navbar-links ul li:hover::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  visibility: visible;
 }
 
 @media (max-width: 768px) {

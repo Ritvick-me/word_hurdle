@@ -57,6 +57,14 @@
   visibility: visible;
 }
 
+.button-tartiary {
+  color: var(--purple);
+  border-color: var(--white);
+  background-color: var(--white);
+  box-sizing: border-box;
+  cursor: default;
+}
+
 .dialogBtn {
   width: 180px;
 }

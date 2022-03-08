@@ -31,7 +31,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-title">
         <Link to="/">
-          <h1>Wordle</h1>
+          <h1>LeWord</h1>
         </Link>
       </div>
       <div className="navbar-links">
