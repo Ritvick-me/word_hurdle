@@ -1,16 +1,22 @@
 .landing {
-  background: linear-gradient(130deg, var(--light-purple) 30%, var(--white));
+  background: var(--white);
   overflow: hidden;
 }
 
 .landing-body {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 2rem;
   padding-top: 7rem !important;
   width: calc(100% - 4rem);
   min-height: calc(100vh - 9rem);
+}
+
+.landing-body-heading {
+  margin: auto;
+  color: var(--purple);
+  /* margin-top: 7rem; */
 }
 
 .landing-blob {
@@ -27,7 +33,7 @@
 .landing-glass {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
   justify-content: space-evenly;
   background-color: var(--glass);
@@ -35,7 +41,6 @@
   width: 100%;
   padding: 1rem;
   border-radius: 5px;
-  background: linear-gradient(130deg, var(--glass) 30%, var(--light-purple));
 }
 
 @media (max-width: 1020px) {
@@ -50,6 +55,13 @@
     min-height: auto;
   }
 
+  .attachKeybd-bottom {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .pickDifficulty {
     align-self: center;
     justify-self: center;
@@ -58,22 +70,23 @@
 }
 
 @media (max-width: 500px) {
-  .landing {
+  /* .landing {
     display: flex;
     justify-content: center;
-  }
+  } */
 
   .landing-body {
     padding: 1rem 0rem;
-    padding-top: 7rem !important;
+    /* padding-top: 7rem !important; */
     margin: 0;
-    min-height: calc(100vh - 8rem);
+    /* min-height: calc(100vh - 8rem); */
     width: 100%;
   }
 
   .landing-glass {
     grid-template-columns: auto;
     row-gap: 1rem;
+    align-items: flex-start;
     justify-content: center;
     padding: 0;
     margin: auto;

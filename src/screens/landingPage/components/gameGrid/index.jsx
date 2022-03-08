@@ -51,6 +51,10 @@ const GameGrid = (props) => {
             updatedWord[index].type = "correct";
             letterMap[w]--;
             isEnded++;
+            // props.setKeyStatus[w.toUpperCase()] < 2 &&
+            //   props.setKeyStatus((prev) => {
+            //     return { ...prev, [w.toUpperCase()]: 2 };
+            //   });
           }
         });
         if (
@@ -76,6 +80,20 @@ const GameGrid = (props) => {
               updatedWord[index].type = "alert";
               letterMap[w]--;
               count++;
+              // props.setKeyStatus[w.toUpperCase()] < 1 &&
+              //   props.setKeyStatus((prev) => {
+              //     return { ...prev, [w.toUpperCase()]: 1 };
+              //   });
+            } else if (
+              count < 1 &&
+              w.toUpperCase() === nw.toUpperCase() &&
+              letterMap[w] &&
+              updatedWord[index].type !== "correct" &&
+              updatedWord[index].type !== "alert"
+            ) {
+              // props.setKeyStatus((prev) => {
+              //   return { ...prev, [w.toUpperCase()]: 3 };
+              // });
             }
           });
         });
@@ -95,14 +113,14 @@ const GameGrid = (props) => {
       if (previousRows.length !== props.difficulty)
         setCurrentRow(currentGrid(props.difficulty));
       else setCurrentRow([]);
-      props.setStep(1);
-      let newScore = fetchScore(props.difficulty, previousRows.length + 1);
-      if (!user) {
-        setScore(newScore);
-      } else {
-        const updatedScore = await updateScore(user.email, newScore);
-        setScore(updatedScore.score);
-      }
+      // props.setStep(1);
+      // let newScore = fetchScore(props.difficulty, previousRows.length + 1);
+      // if (!user) {
+      //   setScore(newScore);
+      // } else {
+      //   const updatedScore = await updateScore(user.email, newScore);
+      //   setScore(updatedScore.score);
+      // }
       props.setInitiateSubmit(false);
       console.log("You Win!!");
       setGameCompleted("Fantastic! You Won!");
@@ -112,16 +130,16 @@ const GameGrid = (props) => {
         updatedWord[i].text = props.word[i].toUpperCase();
         updatedWord[i].type = "wrong";
       }
-      if (!user) {
-        setScore(0);
-      } else {
-        const updatedScore = await updateScore(user.email, 0);
-        setScore(updatedScore.score);
-      }
+      // if (!user) {
+      //   setScore(0);
+      // } else {
+      //   const updatedScore = await updateScore(user.email, 0);
+      //   setScore(updatedScore.score);
+      // }
       let newArr = new Array(updatedWord);
       setPreviousRows((prev) => [...prev, ...newArr]);
       setCurrentRow([]);
-      props.setStep(1);
+      // props.setStep(1);
       props.setInitiateSubmit(false);
       console.log("You Lost.");
       setGameCompleted("Oops! You Lost!");
@@ -130,6 +148,7 @@ const GameGrid = (props) => {
   };
 
   const resetGame = () => {
+    props.startGame();
     setCurrentRow(currentGrid(props.difficulty));
     setEmptyGrid(toggleGrid(props.difficulty));
     setPreviousRows([]);
@@ -139,6 +158,7 @@ const GameGrid = (props) => {
 
   return (
     <>
+      <h1 className="landing-body-heading">WORDLE</h1>
       <Popup
         toggleModal={toggleModal}
         gameCompleted={gameCompleted}
@@ -157,7 +177,10 @@ const GameGrid = (props) => {
         {previousRows.length > 0 &&
           previousRows.map((col, index) => {
             return (
-              <div key={index} className="gameGrid-row">
+              <div
+                key={index}
+                className={`gameGrid-row gamegrid-col-count-${props.difficulty}`}
+              >
                 {col.map((cell, index) => {
                   return (
                     <LetterBox key={index} type={cell.type}>
@@ -169,7 +192,9 @@ const GameGrid = (props) => {
             );
           })}
         {currentRow.length > 0 && (
-          <div className="gameGrid-row">
+          <div
+            className={`gameGrid-row gamegrid-col-count-${props.difficulty}`}
+          >
             {currentRow.map((cell, index) => {
               return (
                 <LetterBox key={index} type={cell.type}>
@@ -182,7 +207,10 @@ const GameGrid = (props) => {
         {emptyGrid.length > 0 &&
           emptyGrid.map((col, index) => {
             return (
-              <div key={index} className="gameGrid-row">
+              <div
+                key={index}
+                className={`gameGrid-row gamegrid-col-count-${props.difficulty}`}
+              >
                 {col.map((cell, index) => {
                   return (
                     <LetterBox key={index} type={cell.type}>

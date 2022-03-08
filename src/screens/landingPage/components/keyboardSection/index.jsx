@@ -18,10 +18,10 @@ const KeyboardSection = (props) => {
       } else if (event.key === "Enter") {
         if (props.word.length === props.difficulty) {
           try {
-            const res = await checkWord(props.word);
-            if (res) {
-              props.setInitiateSubmit(true);
-            } else props.setWord("");
+            //   const res = await checkWord(props.word);
+            // if (res) {
+            props.setInitiateSubmit(true);
+            // } else props.setWord("");
           } catch (err) {
             console.log(err);
           }
@@ -40,15 +40,45 @@ const KeyboardSection = (props) => {
     };
   }, [props.word]);
 
+  // useEffect(() => {
+  //   let r1 = rowOne;
+  //   r1.forEach((r) => {
+  //     if (props.keyStatus[r.key.toUpperCase()] > 0) {
+  //       r.status = setKeyType(props.keyStatus[r.key.toUpperCase()], r.status);
+  //       r.type = getKeyType(r.status);
+  //     }
+  //   });
+  //   setRowOne(r1);
+  //   console.log(props.keyStatus);
+  // }, [props.keyStatus]);
+
+  // const setKeyType = (newVal, oldVal) => {
+  //   return oldVal < newVal ? newVal : oldVal;
+  // };
+
+  // const getKeyType = (val) => {
+  //   switch (val) {
+  //     case 0:
+  //       return "default";
+  //     case 1:
+  //       return "close";
+  //     case 2:
+  //       return "found";
+  //     case 3:
+  //       return "notFound";
+  //   }
+  // };
+
   const keyPress = async (event) => {
     if (event === "Backspace") {
       props.setWord((prev) => prev.slice(0, -1));
     } else if (event === "Enter") {
       if (props.word.length === props.difficulty) {
         try {
-          const res = await checkWord(props.word);
-          if (res) props.setInitiateSubmit(true);
-          else props.setWord("");
+          // const res = await checkWord(props.word);
+          // if (res)
+          props.setInitiateSubmit(true);
+          // else props.setWord("");
           props.setInitiateSubmit(true);
         } catch (err) {
           console.log(err);
@@ -63,7 +93,7 @@ const KeyboardSection = (props) => {
 
   return (
     <div className="keyModule">
-      <PickDifficulty isDisabled={true} difficulty={props.difficulty} />
+      {/* <PickDifficulty isDisabled={true} difficulty={props.difficulty} /> */}
       <div className="keyModule-board">
         <div className="keyModule-row keyModule-row-one">
           {rowOne.map((r) => {
