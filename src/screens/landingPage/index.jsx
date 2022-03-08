@@ -20,7 +20,7 @@ const Landing = () => {
   const startGame = async (val) => {
     try {
       const data = await getNewWord();
-      setNewWord(data.word.word);
+      setNewWord(data.word.word.toUpperCase());
       setDifficulty(data.word.word.length);
       setWordMeaning(data.word.word.meaning);
       // setStep(val);

@@ -65,8 +65,8 @@ export const toggleGrid = (letterCount) => {
 export const currentGrid = (letterCount) => {
   let COLUMN = [];
   switch (letterCount) {
-    case 4: {
-      for (let colCount = 0; colCount < 4; colCount++) {
+    case 5: {
+      for (let colCount = 0; colCount < 5; colCount++) {
         let colCur = new CurrentCell();
         COLUMN.push(colCur);
       }
@@ -87,7 +87,7 @@ export const currentGrid = (letterCount) => {
       break;
     }
     default: {
-      for (let colCount = 0; colCount < 5; colCount++) {
+      for (let colCount = 0; colCount < 4; colCount++) {
         let colCur = new CurrentCell();
         COLUMN.push(colCur);
       }

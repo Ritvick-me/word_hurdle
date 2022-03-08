@@ -10,6 +10,7 @@ const KeyboardSection = (props) => {
   const [rowOne, setRowOne] = useState(keyboardRows(1));
   const [rowTwo, setRowTwo] = useState(keyboardRows(2));
   const [rowThree, setRowThree] = useState(keyboardRows(3));
+  const [dummyState, setDummyState] = useState(1);
 
   useEffect(() => {
     const onKeyPressEvent = async (event) => {
@@ -18,10 +19,7 @@ const KeyboardSection = (props) => {
       } else if (event.key === "Enter") {
         if (props.word.length === props.difficulty) {
           try {
-            //   const res = await checkWord(props.word);
-            // if (res) {
             props.setInitiateSubmit(true);
-            // } else props.setWord("");
           } catch (err) {
             console.log(err);
           }
@@ -40,34 +38,50 @@ const KeyboardSection = (props) => {
     };
   }, [props.word]);
 
-  // useEffect(() => {
-  //   let r1 = rowOne;
-  //   r1.forEach((r) => {
-  //     if (props.keyStatus[r.key.toUpperCase()] > 0) {
-  //       r.status = setKeyType(props.keyStatus[r.key.toUpperCase()], r.status);
-  //       r.type = getKeyType(r.status);
-  //     }
-  //   });
-  //   setRowOne(r1);
-  //   console.log(props.keyStatus);
-  // }, [props.keyStatus]);
+  useEffect(() => {
+    let r1 = rowOne;
+    let r2 = rowTwo;
+    let r3 = rowThree;
+    r1.forEach((r) => {
+      if (props.keyStatus[r.key.toUpperCase()] > 0) {
+        r.status = setKeyType(props.keyStatus[r.key.toUpperCase()], r.status);
+        r.type = getKeyType(r.status);
+      }
+    });
+    r2.forEach((r) => {
+      if (props.keyStatus[r.key.toUpperCase()] > 0) {
+        r.status = setKeyType(props.keyStatus[r.key.toUpperCase()], r.status);
+        r.type = getKeyType(r.status);
+      }
+    });
+    r3.forEach((r) => {
+      if (props.keyStatus[r.key.toUpperCase()] > 0) {
+        r.status = setKeyType(props.keyStatus[r.key.toUpperCase()], r.status);
+        r.type = getKeyType(r.status);
+      }
+    });
+    setRowOne(r1);
+    setRowTwo(r2);
+    setRowThree(r3);
+    setDummyState((prev) => prev + 1);
+  }, [props.initiateSubmit]);
 
-  // const setKeyType = (newVal, oldVal) => {
-  //   return oldVal < newVal ? newVal : oldVal;
-  // };
+  const setKeyType = (newVal, oldVal) => {
+    return oldVal < newVal ? newVal : oldVal;
+  };
 
-  // const getKeyType = (val) => {
-  //   switch (val) {
-  //     case 0:
-  //       return "default";
-  //     case 1:
-  //       return "close";
-  //     case 2:
-  //       return "found";
-  //     case 3:
-  //       return "notFound";
-  //   }
-  // };
+  const getKeyType = (val) => {
+    switch (val) {
+      case 0:
+        return "default";
+      case 1:
+        return "close";
+      case 2:
+        return "found";
+      case 3:
+        return "notFound";
+    }
+  };
 
   const keyPress = async (event) => {
     if (event === "Backspace") {
