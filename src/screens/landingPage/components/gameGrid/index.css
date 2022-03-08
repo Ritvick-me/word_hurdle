@@ -1,36 +1,39 @@
 .gameGrid {
   position: relative;
   justify-self: center;
-  min-width: calc(100vw - 2rem) !important;
+  min-width: 0;
+  max-width: 30rem;
 }
 
 .gameGrid-row {
   position: relative;
   display: grid;
-  min-width: 100% !important;
+  justify-content: center;
+  padding: 0 1rem;
+  width: calc(100% - 2rem);
 }
 
 .gamegrid-col-count-4 {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(3rem, 5rem));
 }
 
 .gamegrid-col-count-5 {
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(3rem, 5rem));
 }
 
 .gamegrid-col-count-6 {
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(3rem, 5rem));
 }
 
-.gamegrid-col-count-6 {
-  grid-template-columns: repeat(7, 1fr);
+.gamegrid-col-count-7 {
+  grid-template-columns: repeat(7, minmax(3rem, 5rem));
 }
 
 .landing-body-bajaj-logo {
   position: absolute;
   filter: blur(10px) opacity(0.2);
-  width: 100%;
+  height: 100%;
   top: 50%;
-  left: 0rem;
-  transform: translateY(-50%);
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
 }

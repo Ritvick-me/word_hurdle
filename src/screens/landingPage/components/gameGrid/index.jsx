@@ -113,6 +113,7 @@ const GameGrid = (props) => {
       if (previousRows.length !== props.difficulty)
         setCurrentRow(currentGrid(props.difficulty));
       else setCurrentRow([]);
+      setScore(fetchScore(7, previousRows.length + 1));
       // props.setStep(1);
       // let newScore = fetchScore(props.difficulty, previousRows.length + 1);
       // if (!user) {
@@ -130,6 +131,7 @@ const GameGrid = (props) => {
         updatedWord[i].text = props.word[i].toUpperCase();
         updatedWord[i].type = "wrong";
       }
+      setScore(0);
       // if (!user) {
       //   setScore(0);
       // } else {

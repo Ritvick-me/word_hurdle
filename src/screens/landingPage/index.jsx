@@ -10,7 +10,7 @@ const Landing = () => {
   const [word, setWord] = useState("");
   const [initiateSubmit, setInitiateSubmit] = useState(false);
   const [difficulty, setDifficulty] = useState(5);
-  const [step, setStep] = useState(1);
+  // const [step, setStep] = useState(1);
   const [keyStatus, setKeyStatus] = useState({});
 
   useEffect(() => {
@@ -19,10 +19,10 @@ const Landing = () => {
 
   const startGame = async (val) => {
     try {
-      // const data = await getNewWord(difficulty);
-      setNewWord(process.env.REACT_APP_WORD);
-      setDifficulty(process.env.REACT_APP_WORD.length);
-      setWordMeaning(process.env.REACT_APP_LINK);
+      const data = await getNewWord();
+      setNewWord(data.word.word);
+      setDifficulty(data.word.word.length);
+      setWordMeaning(data.word.word.meaning);
       // setStep(val);
     } catch (err) {
       console.log(err);
@@ -57,6 +57,7 @@ const Landing = () => {
             />
           )} */}
           {/* {step === 2 && ( */}
+          {/* )} */}
           <div className="attachKeybd-bottom">
             <KeyboardSection
               difficulty={difficulty}
@@ -67,7 +68,6 @@ const Landing = () => {
               keyStatus={keyStatus}
             />
           </div>
-          {/* )} */}
         </div>
       </div>
     </div>

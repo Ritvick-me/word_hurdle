@@ -4,7 +4,7 @@
   justify-content: center;
   color: var(--purple);
   font-weight: var(--bold);
-  /* height: 3rem; */
+  height: 4vh;
   /* width: 100%; */
   margin: 0.2rem;
   border-style: solid;
@@ -33,15 +33,15 @@
 @media (max-width: 1020px) {
   .letterBox {
     font-size: 0.8rem;
-    height: 2rem;
-    width: 2rem;
+    /* height: 2rem;
+    width: 2rem; */
   }
 }
 
 @media (max-width: 500px) {
   .letterBox {
-    height: 1.5rem;
-    width: 1.5rem;
+    /* height: 1.5rem;
+    width: 1.5rem; */
     border-width: 2px;
   }
 }
