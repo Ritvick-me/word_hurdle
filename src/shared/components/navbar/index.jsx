@@ -3,6 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 import "./index.css";
 
 import Leaderboards from "../../../assets/vector/Leaderboards.svg";
+import BajajLogo from "../../../assets/vector/BajajLogo.svg";
 import { Button, Avatar } from "..";
 import CONSTANTS from "../../utils/constants";
 import UserContext from "../../contexts/userContext";
@@ -31,10 +32,11 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-title">
         <Link to="/">
-          <h1>LeWord</h1>
+          {/* <h1>LeWord</h1> */}
+          <img src={BajajLogo} alt="Bajaj Finserv Health Logo" />
         </Link>
       </div>
-      <div className="navbar-links">
+      {/* <div className="navbar-links">
         <ul>
           <Link to="/leaderboards">
             <li>Leaderboards</li>
@@ -54,7 +56,7 @@ const Navbar = () => {
             alt={user.firstName + " " + user.lastName}
           />
         )}
-      </div>
+      </div> */}
     </nav>
   );
 };

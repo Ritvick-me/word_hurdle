@@ -11,13 +11,19 @@ const Landing = () => {
   const [initiateSubmit, setInitiateSubmit] = useState(false);
   const [difficulty, setDifficulty] = useState(5);
   const [step, setStep] = useState(1);
+  const [keyStatus, setKeyStatus] = useState({});
+
+  useEffect(() => {
+    startGame(5);
+  }, []);
 
   const startGame = async (val) => {
     try {
-      const data = await getNewWord(difficulty);
-      setNewWord(data.word.toUpperCase());
-      setWordMeaning(data.meaning);
-      setStep(val);
+      // const data = await getNewWord(difficulty);
+      setNewWord(process.env.REACT_APP_WORD);
+      setDifficulty(process.env.REACT_APP_WORD.length);
+      setWordMeaning(process.env.REACT_APP_LINK);
+      // setStep(val);
     } catch (err) {
       console.log(err);
     }
@@ -26,7 +32,7 @@ const Landing = () => {
   return (
     <div className="landing">
       <div className="landing-body">
-        <div className="landing-blob"></div>
+        {/* <div className="landing-blob"></div> */}
         <div className="landing-glass">
           <GameGrid
             difficulty={difficulty}
@@ -36,9 +42,12 @@ const Landing = () => {
             initiateSubmit={initiateSubmit}
             setInitiateSubmit={setInitiateSubmit}
             wordMeaning={wordMeaning}
-            setStep={setStep}
+            // setStep={setStep}
+            keyStatus={keyStatus}
+            setKeyStatus={setKeyStatus}
+            startGame={startGame}
           />
-          {step === 1 && (
+          {/* {step === 1 && (
             <PickDifficulty
               difficulty={difficulty}
               setDifficulty={setDifficulty}
@@ -46,16 +55,19 @@ const Landing = () => {
               setStep={startGame}
               isDisabled={false}
             />
-          )}
-          {step === 2 && (
+          )} */}
+          {/* {step === 2 && ( */}
+          <div className="attachKeybd-bottom">
             <KeyboardSection
               difficulty={difficulty}
               word={word}
               setWord={setWord}
               initiateSubmit={initiateSubmit}
               setInitiateSubmit={setInitiateSubmit}
+              keyStatus={keyStatus}
             />
-          )}
+          </div>
+          {/* )} */}
         </div>
       </div>
     </div>

@@ -1,5 +1,7 @@
 .keyModule-board {
+  margin: auto;
   margin-top: 2rem;
+  max-width: 50rem;
 }
 
 .keyModule-row {

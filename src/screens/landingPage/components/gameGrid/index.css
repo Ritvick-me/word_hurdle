@@ -1,11 +1,29 @@
 .gameGrid {
   position: relative;
   justify-self: center;
+  min-width: calc(100vw - 2rem) !important;
 }
 
 .gameGrid-row {
   position: relative;
-  display: flex;
+  display: grid;
+  min-width: 100% !important;
+}
+
+.gamegrid-col-count-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gamegrid-col-count-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.gamegrid-col-count-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.gamegrid-col-count-6 {
+  grid-template-columns: repeat(7, 1fr);
 }
 
 .landing-body-bajaj-logo {
