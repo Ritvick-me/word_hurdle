@@ -1,4 +1,4 @@
-.popup {
+.popupInfo {
   padding: 10px 20px;
 }
 .headerTitle {
@@ -97,3 +97,10 @@
 
 }
 
+.cube p
+{
+  display: inline-block;
+  border: 1px solid var(--purple);
+  margin-left:4px;
+width: 10px;
+}

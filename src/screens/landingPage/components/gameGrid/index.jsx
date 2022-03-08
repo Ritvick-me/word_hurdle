@@ -6,9 +6,12 @@ import UserContext from "../../../../shared/contexts/userContext";
 import { toggleGrid, currentGrid } from "../../../../shared/utils/gridBody";
 import { fetchScore } from "../../../../shared/utils/score";
 import { updateScore } from "../../../../shared/api/scoring";
-import { LetterBox, Popup } from "../../../../shared/components";
+import { LetterBox, Popup, PopupInfo } from "../../../../shared/components";
 
 const GameGrid = (props) => {
+  // useEffect(()=>{
+  //   setToggleModal(true);
+  // },[])
   const [previousRows, setPreviousRows] = useState([]);
   const [currentRow, setCurrentRow] = useState([]);
   const [emptyGrid, setEmptyGrid] = useState([]);
