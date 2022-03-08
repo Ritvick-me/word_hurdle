@@ -5,7 +5,8 @@ import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import { Button } from "../";
+import Divider from '@mui/material/Divider';
+import { LetterBox } from "../index";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import styles from "./index.module.css";
 import UserContext from "../../contexts/userContext";
@@ -44,7 +45,7 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export function Popup(props) {
+export function PopupInfo(props) {
   const isPhone = useMediaQuery("(max-width:1024px)");
   // useEffect(() => {
   //   setIsMobile(isPhone);
@@ -59,7 +60,7 @@ export function Popup(props) {
     props.resetGame();
     props.setToggleModal(false);
   };
-
+const vart="HEART";
   return (
     <BootstrapDialog
       onClose={() => props.setToggleModal(false)}
@@ -73,34 +74,27 @@ export function Popup(props) {
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          <h3 className={styles.headerTitle}>{props.gameCompleted}Hey! you won</h3>
+          <h3 className={styles.headerTitle}>HOW TO PLAY</h3>
+          <Divider/>
         </BootstrapDialogTitle>
         <div className={styles.contentContainer}>
-              <p className={styles.correctWord}>
-                The correct word was: <span>{props.newWord}Apple</span>
-              </p>
-              <div>
-                    <p className={styles.guestScore}>
-                      <span>Your Score: </span>
-                      {props.score}
-                    </p>
-              </div>
-              <div className={styles.btnContainer}>
-                <div className={styles.dialogBtn}>
-                  <Button type="secondary" size="dialogBtn">
-                    Share it
-                  </Button>
-                </div>
-                <div className={styles.dialogBtn}>
-                  <Button type="primary" size="dialogBtn" onClick={handleClose}>
-                    Read more
-                  </Button>
-                </div>
-              </div>
-        </div>
+        <p>Guess the WORDLE in six tries.</p>
+        <p>Each guess must be a valid word. Hit the enter button to submit.</p>
+        <p>After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+        <Divider/>
+        <p>Examples</p>
+        <p>The letter W is in the word and in the correct spot.</p>
+        <div>{vart.split('').map((letter,index)=><LetterBox>{letter}</LetterBox>
+        )}</div>
+        
+        <p>The letter I is in the word but in the wrong spot.</p>
+        <p>The letter U is not in the word in any spot.</p>
+        <Divider/>
+        <p>A new word will be available each day!</p>
       </div>
+       </div>
     </BootstrapDialog>
   );
 }
 
-export default Popup;
+export default PopupInfo;
