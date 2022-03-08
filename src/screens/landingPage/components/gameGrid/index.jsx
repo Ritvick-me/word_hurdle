@@ -97,12 +97,10 @@ const GameGrid = (props) => {
       else setCurrentRow([]);
       props.setStep(1);
       let newScore = fetchScore(props.difficulty, previousRows.length + 1);
-      console.log(newScore);
       if (!user) {
         setScore(newScore);
       } else {
         const updatedScore = await updateScore(user.email, newScore);
-        console.log(updatedScore);
         setScore(updatedScore.score);
       }
       props.setInitiateSubmit(false);
@@ -113,6 +111,12 @@ const GameGrid = (props) => {
       for (let i = 0; i < props.word.length; i++) {
         updatedWord[i].text = props.word[i].toUpperCase();
         updatedWord[i].type = "wrong";
+      }
+      if (!user) {
+        setScore(0);
+      } else {
+        const updatedScore = await updateScore(user.email, 0);
+        setScore(updatedScore.score);
       }
       let newArr = new Array(updatedWord);
       setPreviousRows((prev) => [...prev, ...newArr]);

@@ -11,7 +11,7 @@ const PickDifficulty = (props) => {
       }`}
     >
       <div className="pickDifficulty-selector">
-        <Button type="primary">Letter Difficulty</Button>
+        <Button type="tartiary">Letter Difficulty</Button>
         <div className="pickDifficulty-tiles">
           <Button
             type={props.difficulty === 5 ? "primary" : "secondary"}
