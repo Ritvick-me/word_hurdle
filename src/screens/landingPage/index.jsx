@@ -22,7 +22,7 @@ const Landing = () => {
       const data = await getNewWord();
       setNewWord(data.word.word.toUpperCase());
       setDifficulty(data.word.word.length);
-      setWordMeaning(data.word.word.meaning);
+      setWordMeaning(data.word.meaning);
       // setStep(val);
     } catch (err) {
       console.log(err);

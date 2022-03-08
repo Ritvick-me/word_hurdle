@@ -15,6 +15,75 @@ class CurrentCell {
   }
 }
 
+export const DUMMY_CELL_CONTENT_HEART = [
+  {
+    text: "H",
+    type: "correct",
+  },
+  {
+    text: "E",
+    type: "current",
+  },
+  {
+    text: "A",
+    type: "current",
+  },
+  {
+    text: "R",
+    type: "current",
+  },
+  {
+    text: "T",
+    type: "current",
+  },
+];
+
+export const DUMMY_CELL_CONTENT_SLICE = [
+  {
+    text: "S",
+    type: "current",
+  },
+  {
+    text: "L",
+    type: "current",
+  },
+  {
+    text: "I",
+    type: "alert",
+  },
+  {
+    text: "C",
+    type: "current",
+  },
+  {
+    text: "E",
+    type: "current",
+  },
+];
+
+export const DUMMY_CELL_CONTENT_ABSENT = [
+  {
+    text: "B",
+    type: "current",
+  },
+  {
+    text: "R",
+    type: "current",
+  },
+  {
+    text: "U",
+    type: "current",
+  },
+  {
+    text: "T",
+    type: "absent",
+  },
+  {
+    text: "E",
+    type: "current",
+  },
+];
+
 export const toggleGrid = (letterCount) => {
   let ROW = [];
   switch (letterCount) {

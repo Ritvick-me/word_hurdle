@@ -16,6 +16,11 @@
   background-color: var(--grey);
 }
 
+.letterBox-absent {
+  color: var(--white);
+  background-color: var(--silver);
+}
+
 .letterBox-correct {
   color: var(--white);
   background-color: var(--green);

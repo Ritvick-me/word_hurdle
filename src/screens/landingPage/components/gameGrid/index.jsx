@@ -6,7 +6,7 @@ import UserContext from "../../../../shared/contexts/userContext";
 import { toggleGrid, currentGrid } from "../../../../shared/utils/gridBody";
 import { fetchScore } from "../../../../shared/utils/score";
 import { updateScore } from "../../../../shared/api/scoring";
-import { LetterBox, Popup, PopupInfo } from "../../../../shared/components";
+import { LetterBox, Popup } from "../../../../shared/components";
 
 const GameGrid = (props) => {
   // useEffect(()=>{
@@ -93,6 +93,7 @@ const GameGrid = (props) => {
               updatedWord[index].type !== "correct" &&
               updatedWord[index].type !== "alert"
             ) {
+              updatedWord[index].type = "absent";
               (!props.keyStatus[w.toUpperCase()] ||
                 props.keyStatus[w.toUpperCase()] < 1) &&
                 props.setKeyStatus((prev) => {

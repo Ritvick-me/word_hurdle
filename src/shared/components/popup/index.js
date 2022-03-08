@@ -56,7 +56,7 @@ export function Popup(props) {
   // console.log(user);
 
   const handleClose = () => {
-    props.resetGame();
+    // props.resetGame();
     props.setToggleModal(false);
   };
 
@@ -73,30 +73,32 @@ export function Popup(props) {
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          <h3 className={styles.headerTitle}>{props.gameCompleted}Hey! you won</h3>
+          <h3 className={styles.headerTitle}>{props.gameCompleted}</h3>
         </BootstrapDialogTitle>
         <div className={styles.contentContainer}>
-              <p className={styles.correctWord}>
-                The correct word was: <span>{props.newWord}Apple</span>
-              </p>
-              <div>
-                    <p className={styles.guestScore}>
-                      <span>Your Score: </span>
-                      {props.score}
-                    </p>
-              </div>
-              <div className={styles.btnContainer}>
-                <div className={styles.dialogBtn}>
-                  <Button type="secondary" size="dialogBtn">
-                    Share it
-                  </Button>
-                </div>
-                <div className={styles.dialogBtn}>
-                  <Button type="primary" size="dialogBtn" onClick={handleClose}>
-                    Read more
-                  </Button>
-                </div>
-              </div>
+          <p className={styles.correctWord}>
+            The correct word was: <span>{props.newWord}</span>
+          </p>
+          <div>
+            <p className={styles.guestScore}>
+              <span>Your Score: </span>
+              {props.score}
+            </p>
+          </div>
+          <div className={styles.btnContainer}>
+            <div className={styles.dialogBtn}>
+              <Button type="secondary" size="dialogBtn">
+                Share it
+              </Button>
+            </div>
+            <div className={styles.dialogBtn}>
+              <a href={props.wordMeaning} target="_blank">
+                <Button type="primary" size="dialogBtn">
+                  Read more
+                </Button>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </BootstrapDialog>
