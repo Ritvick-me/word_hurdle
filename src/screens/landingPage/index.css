@@ -1,5 +1,7 @@
 .landing {
   background: var(--white);
+  display: flex;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -41,11 +43,14 @@
   width: 100%;
   padding: 1rem;
   border-radius: 5px;
+  /* max-width: 50rem; */
 }
 
 @media (max-width: 1020px) {
   .landing-body {
     min-height: auto;
+    padding: 1rem 1rem;
+    margin: 0;
   }
 
   .landing-glass {
@@ -55,17 +60,18 @@
     min-height: auto;
   }
 
-  .attachKeybd-bottom {
-    position: fixed;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
   .pickDifficulty {
     align-self: center;
     justify-self: center;
     grid-area: 1 / 1 / 1 / 1;
+  }
+
+  .attachKeybd-bottom {
+    position: fixed;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
   }
 }
 

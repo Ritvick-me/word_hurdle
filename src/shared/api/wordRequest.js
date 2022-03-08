@@ -20,13 +20,10 @@ export const checkWord = async (word) => {
   return response;
 };
 
-export const getNewWord = async (val) => {
+export const getNewWord = async () => {
   const response = await axios({
     method: "post",
     url: `${backend_base_URL}/word/getAWord`,
-    data: {
-      difficulty: val, // This is the body part
-    },
   })
     .then((res) => {
       return res.data;

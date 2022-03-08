@@ -53,7 +53,7 @@ export function Popup(props) {
   const [open, setOpen] = React.useState(false);
 
   const { user } = useContext(UserContext);
-  console.log(user);
+  // console.log(user);
 
   const handleClose = () => {
     props.resetGame();

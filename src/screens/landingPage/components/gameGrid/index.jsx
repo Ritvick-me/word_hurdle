@@ -54,10 +54,11 @@ const GameGrid = (props) => {
             updatedWord[index].type = "correct";
             letterMap[w]--;
             isEnded++;
-            // props.setKeyStatus[w.toUpperCase()] < 2 &&
-            //   props.setKeyStatus((prev) => {
-            //     return { ...prev, [w.toUpperCase()]: 2 };
-            //   });
+            (!props.keyStatus[w.toUpperCase()] ||
+              props.keyStatus[w.toUpperCase()] < 2) &&
+              props.setKeyStatus((prev) => {
+                return { ...prev, [w.toUpperCase()]: 2 };
+              });
           }
         });
         if (
@@ -83,20 +84,20 @@ const GameGrid = (props) => {
               updatedWord[index].type = "alert";
               letterMap[w]--;
               count++;
-              // props.setKeyStatus[w.toUpperCase()] < 1 &&
-              //   props.setKeyStatus((prev) => {
-              //     return { ...prev, [w.toUpperCase()]: 1 };
-              //   });
+              (!props.keyStatus[w.toUpperCase()] ||
+                props.keyStatus[w.toUpperCase()] < 1) &&
+                props.setKeyStatus((prev) => {
+                  return { ...prev, [w.toUpperCase()]: 1 };
+                });
             } else if (
-              count < 1 &&
-              w.toUpperCase() === nw.toUpperCase() &&
-              letterMap[w] &&
               updatedWord[index].type !== "correct" &&
               updatedWord[index].type !== "alert"
             ) {
-              // props.setKeyStatus((prev) => {
-              //   return { ...prev, [w.toUpperCase()]: 3 };
-              // });
+              (!props.keyStatus[w.toUpperCase()] ||
+                props.keyStatus[w.toUpperCase()] < 1) &&
+                props.setKeyStatus((prev) => {
+                  return { ...prev, [w.toUpperCase()]: 3 };
+                });
             }
           });
         });
@@ -116,6 +117,7 @@ const GameGrid = (props) => {
       if (previousRows.length !== props.difficulty)
         setCurrentRow(currentGrid(props.difficulty));
       else setCurrentRow([]);
+      setScore(fetchScore(props.difficulty, previousRows.length + 1));
       // props.setStep(1);
       // let newScore = fetchScore(props.difficulty, previousRows.length + 1);
       // if (!user) {
