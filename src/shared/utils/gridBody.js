@@ -88,7 +88,7 @@ export const toggleGrid = (letterCount) => {
   let ROW = [];
   switch (letterCount) {
     case 5: {
-      for (let count = 0; count < 5; count++) {
+      for (let count = 0; count < 7; count++) {
         let COLUMN = [];
         for (let colCount = 0; colCount < 5; colCount++) {
           COLUMN.push(CELL_EMPTY);
@@ -98,7 +98,7 @@ export const toggleGrid = (letterCount) => {
       break;
     }
     case 6: {
-      for (let count = 0; count < 6; count++) {
+      for (let count = 0; count < 7; count++) {
         let COLUMN = [];
         for (let colCount = 0; colCount < 6; colCount++) {
           COLUMN.push(CELL_EMPTY);
@@ -118,7 +118,7 @@ export const toggleGrid = (letterCount) => {
       break;
     }
     default: {
-      for (let count = 0; count < 4; count++) {
+      for (let count = 0; count < 7; count++) {
         let COLUMN = [];
         for (let colCount = 0; colCount < 4; colCount++) {
           COLUMN.push(CELL_EMPTY);

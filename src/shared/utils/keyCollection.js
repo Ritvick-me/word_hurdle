@@ -75,6 +75,7 @@ const ROW_TWO = [
   {
     key: "G",
     type: "default",
+    status: 0,
   },
   {
     key: "H",

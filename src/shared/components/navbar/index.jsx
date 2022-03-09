@@ -36,10 +36,10 @@ const Navbar = () => {
         setOpenInfoModal={setOpenInfoModal}
       />
       <div className="navbar-title">
-        <Link to="/">
+        <a href="https://www.bajajfinservhealth.in">
           {/* <h1>LeWord</h1> */}
           <img src={BajajLogo} alt="Bajaj Finserv Health Logo" />
-        </Link>
+        </a>
       </div>
       <div className="navbar-links">
         {/* <ul>
@@ -63,7 +63,7 @@ const Navbar = () => {
         )} */}
         <img
           src={HowTo}
-          alt="How to play Bajaj Health wordle"
+          alt="How to play Bajaj Health word hurdle game"
           onClick={() => setOpenInfoModal(true)}
         />
       </div>

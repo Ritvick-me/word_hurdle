@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigation } from "react-router-dom";
 import "./index.css";
 
 import { getNewWord } from "../../shared/api/wordRequest";
@@ -28,6 +29,9 @@ const Landing = () => {
       console.log(err);
     }
   };
+
+  if (alert("Alert For your User!")) {
+  } else window.location.reload();
 
   return (
     <div className="landing">

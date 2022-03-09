@@ -72,7 +72,9 @@ export function PopupInfo(props) {
           <Divider />
         </BootstrapDialogTitle>
         <div className={styles.contentContainer}>
-          <p className={styles.boldText}>Guess the WORDLE in six tries.</p>
+          <p className={styles.boldText}>
+            Guess the Health Word in eight tries.
+          </p>
           <p>
             Each guess must be a valid word. Hit the enter button to submit.
           </p>
@@ -82,7 +84,10 @@ export function PopupInfo(props) {
           </p>
           <Divider />
           <p className={styles.boldText}>Examples</p>
-          <p>The letter <span className={styles.boldText}>H</span> is in the word and in the correct spot.</p>
+          <p>
+            The letter <span className={styles.boldText}>H</span> is in the word
+            and in the correct spot.
+          </p>
           <div className={"gameGrid-row gamegrid-col-count-5"}>
             {DUMMY_CELL_CONTENT_HEART.map((body, index) => (
               <LetterBox key={body.text} type={body.type}>
@@ -91,7 +96,10 @@ export function PopupInfo(props) {
             ))}
           </div>
 
-          <p>The letter <span className={styles.boldText}>I</span> is in the word but in the wrong spot.</p>
+          <p>
+            The letter <span className={styles.boldText}>I</span> is in the word
+            but in the wrong spot.
+          </p>
           <div className={"gameGrid-row gamegrid-col-count-5"}>
             {DUMMY_CELL_CONTENT_SLICE.map((body, index) => (
               <LetterBox key={body.text} type={body.type}>
@@ -107,9 +115,11 @@ export function PopupInfo(props) {
               </LetterBox>
             ))}
           </div>
-          <div className={styles.customMargin}/>
-          <Divider  />
-          <p className={styles.boldText}>A new word will be available each day!</p>
+          <div className={styles.customMargin} />
+          <Divider />
+          <p className={styles.boldText}>
+            A new word will be available each day!
+          </p>
         </div>
       </div>
     </BootstrapDialog>

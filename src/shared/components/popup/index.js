@@ -60,7 +60,15 @@ export function Popup(props) {
           id="customized-dialog-title"
           onClose={handleClose}
         >
-          <h3 className={styles.headerTitle}>{props.gameCompleted}</h3>
+          <span
+            className={
+              styles.headerTitle +
+              " " +
+              (props.gameCompleted === "Oops! You Lost!" && styles.headerLose)
+            }
+          >
+            {props.gameCompleted}
+          </span>
         </BootstrapDialogTitle>
         <div className={styles.contentContainer}>
           <p className={styles.correctWord}>
@@ -75,7 +83,7 @@ export function Popup(props) {
           <div className={styles.btnContainer}>
             <div className={styles.dialogBtn}>
               <a
-                href={`https://api.whatsapp.com/send?text=Hey! I have got a score of ${props.score} in Bajaj Health Wordle challenge! Beat me to it in here! https://www.google.com`}
+                href={`https://api.whatsapp.com/send?text=Hey! I have got a score of ${props.score} in Bajaj Health Word Challenge! Beat me to it in here! https://www.google.com`}
                 data-action="share/whatsapp/share"
                 target="_blank"
               >

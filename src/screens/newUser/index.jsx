@@ -11,7 +11,7 @@ const NewUser = () => {
         <img
           className="newUser-body-bajaj-logo"
           src={BajajIcon}
-          alt="Bajaj Finserv Health Word Hurdle game similar to wordle"
+          alt="Bajaj Finserv Health Word Hurdle game"
         />
         <div className="newUser-glass">Loading...</div>
       </div>

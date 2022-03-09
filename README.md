@@ -1,2 +1,3 @@
 # wordHurdle
-A Wordle implimentation game
+
+A Health Word implimentation game

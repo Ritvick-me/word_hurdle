@@ -29,10 +29,10 @@ const GameGrid = (props) => {
   }, [props.difficulty]);
 
   useEffect(() => {
-    if (previousRows.length < props.difficulty + 1) {
+    if (previousRows.length < 8) {
       let updatedWord = currentGrid(props.difficulty);
       for (let i = 0; i < props.word.length; i++) {
-        updatedWord[i].text = props.word[i].toUpperCase();
+        if (updatedWord[i]) updatedWord[i].text = props.word[i].toUpperCase();
       }
       setCurrentRow(updatedWord);
     }
@@ -49,22 +49,25 @@ const GameGrid = (props) => {
           !letterMap[w] && (letterMap[w] = 1);
         });
         let isEnded = 0;
+        updatedWord.forEach((uw) => {
+          uw.type = "absent";
+          (!props.keyStatus[uw.text.toUpperCase()] ||
+            props.keyStatus[uw.text.toUpperCase()] < 1) &&
+            props.setKeyStatus((prev) => {
+              return { ...prev, [uw.text.toUpperCase()]: 3 };
+            });
+        });
         Array.from(props.word).some((w, index) => {
           if (w.toUpperCase() === props.newWord[index].toUpperCase()) {
             updatedWord[index].type = "correct";
             letterMap[w]--;
             isEnded++;
-            (!props.keyStatus[w.toUpperCase()] ||
-              props.keyStatus[w.toUpperCase()] < 2) &&
-              props.setKeyStatus((prev) => {
-                return { ...prev, [w.toUpperCase()]: 2 };
-              });
+            props.setKeyStatus((prev) => {
+              return { ...prev, [w.toUpperCase()]: 2 };
+            });
           }
         });
-        if (
-          isEnded !== props.difficulty &&
-          previousRows.length === props.difficulty
-        ) {
+        if (isEnded !== props.difficulty && previousRows.length === 7) {
           return endGame("Lost");
         }
         if (isEnded === props.difficulty) {
@@ -89,20 +92,21 @@ const GameGrid = (props) => {
                 props.setKeyStatus((prev) => {
                   return { ...prev, [w.toUpperCase()]: 1 };
                 });
-            } else if (
-              updatedWord[index].type !== "correct" &&
-              updatedWord[index].type !== "alert"
-            ) {
-              updatedWord[index].type = "absent";
-              (!props.keyStatus[w.toUpperCase()] ||
-                props.keyStatus[w.toUpperCase()] < 1) &&
-                props.setKeyStatus((prev) => {
-                  return { ...prev, [w.toUpperCase()]: 3 };
-                });
             }
+            // else if (
+            //   updatedWord[index].type !== "correct" &&
+            //   updatedWord[index].type !== "alert"
+            // ) {
+            //   updatedWord[index].type = "absent";
+            //   (!props.keyStatus[w.toUpperCase()] ||
+            //     props.keyStatus[w.toUpperCase()] < 1) &&
+            //     props.setKeyStatus((prev) => {
+            //       return { ...prev, [w.toUpperCase()]: 3 };
+            //     });
+            // }
           });
         });
-        if (previousRows.length === props.difficulty) {
+        if (previousRows.length === 7) {
           setCurrentRow([]);
         } else setCurrentRow(currentGrid(props.difficulty));
         let newArr = new Array(updatedWord);
@@ -164,7 +168,7 @@ const GameGrid = (props) => {
 
   return (
     <>
-      <h1 className="landing-body-heading">WORDLE</h1>
+      <h1 className="landing-body-heading">Health Word</h1>
       <Popup
         toggleModal={toggleModal}
         gameCompleted={gameCompleted}
@@ -178,7 +182,7 @@ const GameGrid = (props) => {
         <img
           className={`landing-body-bajaj-logo`}
           src={BajajIcon}
-          alt="Bajaj Finserv Health Word Hurdle game similar to wordle"
+          alt="Bajaj Finserv Health Word Hurdle"
         />
         {previousRows.length > 0 &&
           previousRows.map((col, index) => {
