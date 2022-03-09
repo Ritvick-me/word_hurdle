@@ -23,15 +23,12 @@ const Landing = () => {
       const data = await getNewWord();
       setNewWord(data.word.word.toUpperCase());
       setDifficulty(data.word.word.length);
-      setWordMeaning(data.word.meaning);
+      setWordMeaning(data.word.link);
       // setStep(val);
     } catch (err) {
       console.log(err);
     }
   };
-
-  if (alert("Alert For your User!")) {
-  } else window.location.reload();
 
   return (
     <div className="landing">
