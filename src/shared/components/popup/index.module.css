@@ -22,15 +22,6 @@
   color: var(--green);
 }
 
-.meaning {
-  font-weight: var(--medium);
-  font-size: 18px;
-  line-height: 20px;
-}
-
-.meaning span {
-  font-weight: var(--semi-bold);
-}
 .profileContainer img {
   display: inline-block;
   width: 80px;

@@ -1,3 +1,7 @@
+.popup
+{
+  padding: 5px 5px 0px 5px;
+}
 .popupInfo {
   padding: 10px 20px;
 }
@@ -5,8 +9,10 @@
   color: var(--purple);
   font-weight: var(--bold);
   margin: 0;
+  margin-bottom: 10px;
   font-size: 35px;
   line-height: 38px;
+  padding-right: 25px;
 }
 .contentContainer {
   padding: 0px 15px 10px 15px;
@@ -22,61 +28,10 @@
   color: var(--green);
 }
 
-.meaning {
-  font-weight: var(--medium);
-  font-size: 18px;
-  line-height: 20px;
-}
-
-.meaning span {
-  font-weight: var(--semi-bold);
-}
-.profileContainer img {
-  display: inline-block;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  padding-top: 0;
-}
-
-
-.stats span {
-  font-weight: var(--semi-bold);
-}
-
-.dialogBtn {
-  display: inline-block;
-  margin-left: 20px;
-}
-.guestScore {
-  margin-top:-9px;
-  font-size: 25px;
-  font-weight: var(--semi-bold);
-}
-.guestScore span {
-  color: var(--purple);
-}
-
-.btnContainer {
-  margin-top: -22px;
-  padding: 10px;
-  margin-left: -29px;
-}
-
 
 @media screen and (max-width: 1024px) {
-  .stats {
-    margin-left: 0;
-    margin-top: -29px;
-  }
   .headerTitle {
     font-size: 33px;
-  }
-  .contentContainer {
-    margin-top: -20px;
-  }
-  .guestScore {
-    font-size: 22px;
   }
 }
 
@@ -87,20 +42,13 @@
   .headerTitle {
     margin-left: -10px;
   }
-  .btnContainer {
-    margin-top: -24px;
-    margin-left:-38px;
-  }
 }
 
-@media screen and (max-width: 407px) {
-
-}
-
-.cube p
+.boldText
 {
-  display: inline-block;
-  border: 1px solid var(--purple);
-  margin-left:4px;
-width: 10px;
+  font-weight: var(--semi-bold);
+}
+.customMargin
+{
+  margin-top:18px;
 }

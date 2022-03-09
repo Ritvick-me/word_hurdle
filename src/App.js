@@ -20,6 +20,7 @@ function App() {
           setUser,
         }}
       >
+          
         <BrowserRouter>
           <Navbar />
           <Routes>

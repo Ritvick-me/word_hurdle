@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
@@ -6,9 +6,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import { Button } from "../";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import styles from "./index.module.css";
-import UserContext from "../../contexts/userContext";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -27,8 +25,8 @@ const BootstrapDialogTitle = (props) => {
           onClick={onClose}
           sx={{
             position: "absolute",
-            right: 8,
-            top: 8,
+            right: 16,
+            top: 16,
             color: (theme) => theme.palette.grey[500],
           }}
         >
@@ -45,18 +43,7 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export function Popup(props) {
-  const isPhone = useMediaQuery("(max-width:1024px)");
-  // useEffect(() => {
-  //   setIsMobile(isPhone);
-  // }, [isPhone]);
-  // const [isMobile, setIsMobile] = useState(isPhone);
-  const [open, setOpen] = React.useState(false);
-
-  const { user } = useContext(UserContext);
-  // console.log(user);
-
   const handleClose = () => {
-    // props.resetGame();
     props.setToggleModal(false);
   };
 
