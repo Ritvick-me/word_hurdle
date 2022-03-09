@@ -13,6 +13,7 @@ const Landing = () => {
   const [difficulty, setDifficulty] = useState(5);
   // const [step, setStep] = useState(1);
   const [keyStatus, setKeyStatus] = useState({});
+  const [gameEnded, setGameEnded] = useState(false);
 
   useEffect(() => {
     startGame(5);
@@ -47,6 +48,7 @@ const Landing = () => {
             keyStatus={keyStatus}
             setKeyStatus={setKeyStatus}
             startGame={startGame}
+            setGameEnded={setGameEnded}
           />
           {/* {step === 1 && (
             <PickDifficulty
@@ -67,6 +69,8 @@ const Landing = () => {
               initiateSubmit={initiateSubmit}
               setInitiateSubmit={setInitiateSubmit}
               keyStatus={keyStatus}
+              gameEnded={gameEnded}
+              setGameEnded={setGameEnded}
             />
           </div>
         </div>
