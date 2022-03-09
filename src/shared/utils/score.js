@@ -1,5 +1,7 @@
 export const fetchScore = (difficulty, tries) => {
   switch (difficulty) {
+    case 4:
+      return 90 / tries;
     case 5:
       return 90 / tries;
     case 6:
