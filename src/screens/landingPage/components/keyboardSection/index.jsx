@@ -14,21 +14,22 @@ const KeyboardSection = (props) => {
 
   useEffect(() => {
     const onKeyPressEvent = async (event) => {
-      if (event.key === "Backspace") {
-        props.setWord((prev) => prev.slice(0, -1));
-      } else if (event.key === "Enter") {
-        if (props.word.length === props.difficulty) {
-          try {
-            props.setInitiateSubmit(true);
-          } catch (err) {
-            console.log(err);
+      if (!props.gameEnded)
+        if (event.key === "Backspace") {
+          props.setWord((prev) => prev.slice(0, -1));
+        } else if (event.key === "Enter") {
+          if (props.word.length === props.difficulty) {
+            try {
+              props.setInitiateSubmit(true);
+            } catch (err) {
+              console.log(err);
+            }
+          }
+        } else if (event.key.length === 1 && event.key.match(/[a-z]/i)) {
+          if (props.word.length < props.difficulty) {
+            props.setWord((prev) => prev + event.key.toUpperCase());
           }
         }
-      } else if (event.key.length === 1 && event.key.match(/[a-z]/i)) {
-        if (props.word.length < props.difficulty) {
-          props.setWord((prev) => prev + event.key.toUpperCase());
-        }
-      }
     };
 
     window.addEventListener("keyup", onKeyPressEvent);
@@ -84,25 +85,26 @@ const KeyboardSection = (props) => {
   };
 
   const keyPress = async (event) => {
-    if (event === "Backspace") {
-      props.setWord((prev) => prev.slice(0, -1));
-    } else if (event === "Enter") {
-      if (props.word.length === props.difficulty) {
-        try {
-          // const res = await checkWord(props.word);
-          // if (res)
-          props.setInitiateSubmit(true);
-          // else props.setWord("");
-          props.setInitiateSubmit(true);
-        } catch (err) {
-          console.log(err);
+    if (!props.gameEnded)
+      if (event === "Backspace") {
+        props.setWord((prev) => prev.slice(0, -1));
+      } else if (event === "Enter") {
+        if (props.word.length === props.difficulty) {
+          try {
+            // const res = await checkWord(props.word);
+            // if (res)
+            props.setInitiateSubmit(true);
+            // else props.setWord("");
+            props.setInitiateSubmit(true);
+          } catch (err) {
+            console.log(err);
+          }
+        }
+      } else if (event.length === 1 && event.match(/[a-z]/i)) {
+        if (props.word.length < props.difficulty) {
+          props.setWord((prev) => prev + event.toUpperCase());
         }
       }
-    } else if (event.length === 1 && event.match(/[a-z]/i)) {
-      if (props.word.length < props.difficulty) {
-        props.setWord((prev) => prev + event.toUpperCase());
-      }
-    }
   };
 
   return (
