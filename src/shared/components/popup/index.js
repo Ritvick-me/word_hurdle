@@ -83,7 +83,7 @@ export function Popup(props) {
           <div className={styles.btnContainer}>
             <div className={styles.dialogBtn}>
               <a
-                href={`https://api.whatsapp.com/send?text=Hey! I have got a score of ${props.score} in Bajaj Health Word Challenge! Beat me to it in here! https://www.google.com`}
+                href={`https://api.whatsapp.com/send?text=Hey! I have got a score of ${props.score} in Bajaj Health Word Challenge! Beat me to it in here! https://word-hurdle.vercel.app/`}
                 data-action="share/whatsapp/share"
                 target="_blank"
               >
