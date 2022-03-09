@@ -154,6 +154,7 @@ const GameGrid = (props) => {
       console.log("You Lost.");
       setGameCompleted("Oops! You Lost!");
     }
+    props.setGameEnded(true);
     setToggleModal(true);
   };
 
