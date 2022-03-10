@@ -5,6 +5,11 @@
   max-width: 30rem;
 }
 
+.landing-body-heading {
+  margin: auto;
+  color: var(--purple);
+}
+
 .gameGrid-row {
   position: relative;
   display: grid;
@@ -36,4 +41,10 @@
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
+}
+
+@media (max-height: 570px) {
+  .gameGrid {
+    margin-top: -1rem;
+  }
 }

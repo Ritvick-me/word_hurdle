@@ -10,10 +10,10 @@ const Landing = () => {
   const [wordMeaning, setWordMeaning] = useState("");
   const [word, setWord] = useState("");
   const [initiateSubmit, setInitiateSubmit] = useState(false);
-  const [difficulty, setDifficulty] = useState(5);
+  const [difficulty, setDifficulty] = useState(4);
+  const [gameEnded, setGameEnded] = useState(false);
   // const [step, setStep] = useState(1);
   const [keyStatus, setKeyStatus] = useState({});
-  const [gameEnded, setGameEnded] = useState(false);
 
   useEffect(() => {
     startGame(5);

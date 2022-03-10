@@ -46,3 +46,9 @@
     display: none;
   }
 }
+
+@media (max-height: 570px) {
+  .keyModule-row {
+    margin-top: 0.5rem;
+  }
+}

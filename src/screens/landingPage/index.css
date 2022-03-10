@@ -10,15 +10,9 @@
   display: flex;
   align-items: flex-start;
   padding: 2rem;
-  padding-top: 5rem !important;
+  padding-top: 5rem;
   width: calc(100% - 4rem);
   min-height: calc(100vh - 9rem);
-}
-
-.landing-body-heading {
-  margin: auto;
-  color: var(--purple);
-  /* margin-top: 7rem; */
 }
 
 .landing-blob {
@@ -97,5 +91,15 @@
     padding: 0;
     margin: auto;
     background: transparent;
+  }
+}
+
+@media (max-height: 570px) {
+  .landing-body {
+    padding-top: 4.5rem;
+  }
+
+  .attachKeybd-bottom {
+    bottom: 1rem;
   }
 }
