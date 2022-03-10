@@ -47,7 +47,7 @@
   }
 }
 
-@media (max-height: 570px) {
+@media (max-height: 600px) {
   .keyModule-row {
     margin-top: 0.5rem;
   }

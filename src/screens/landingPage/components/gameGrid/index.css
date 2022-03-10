@@ -43,7 +43,7 @@
   transform: translateY(-50%) translateX(-50%);
 }
 
-@media (max-height: 570px) {
+@media (max-height: 600px) {
   .gameGrid {
     margin-top: -1rem;
   }
